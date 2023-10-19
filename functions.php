@@ -20,12 +20,31 @@ register_nav_menus(
     )
 );
 
-//Custom POst Type
+//Custom Post Type
 require_once get_template_directory() . '/inc/custom-post-type/custom_post_type_casa.php';
-
 require_once get_template_directory() . '/inc/custom-post-type/custom_post_type_apartamento.php';
 
+//opções no admin
+require_once get_template_directory() . '/inc/Clientes/clientes.php';
+require_once get_template_directory() . '/inc/formulario/formulario-clientes.php';
+require_once get_template_directory() . '/inc/proprietarios/info_proprietarios.php';
 
+//remove itens admin
+require_once get_template_directory() . '/inc/remove-items/comentarios.php';
+require_once get_template_directory() . '/inc/remove-items/posts.php';
+require_once get_template_directory() . '/inc/remove-items/midia.php';
+
+add_action('after_setup_theme', function () {
+    add_role(
+        'clientes',
+        'Clientes',
+        array(
+            'read' => true,
+            'edit_posts' => true,
+            'upload_files' => true,
+        )
+    );
+});
 
 // config the page-home width principal
 
@@ -36,3 +55,20 @@ function set_custom_home_page_template($template) {
   return $template;
 }
 add_filter('template_include', 'set_custom_home_page_template');
+
+
+add_action('widgets_init','sidebar_corretores');
+
+function sidebar_corretores(){
+    register_sidebar(
+        array(
+            'name'=>'Sidebar Corretores',
+            'id'=>'sidebar-1',
+            'description'=>'Sidebar to used to Corretores',
+            'before_widget'=>'<div class ="widget-wrapper">',
+            'after_widget'=>'</div>',
+            'before_title'=>'<h2 class="widget-title">',
+            'after_title'=>'</h2>'
+        )
+    );
+}
