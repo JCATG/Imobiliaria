@@ -73,7 +73,7 @@ function send_email()
             }
         }
         $_SESSION['mensagem'] = $mensagem_alert;
-        header('Location: ' . $_SERVER['PHP_SELF']);
+        header('Location: ' . $_SERVER['REQUEST_URI']);
         exit;
     }
 }

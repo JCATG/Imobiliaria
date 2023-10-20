@@ -145,9 +145,9 @@ $post_id = get_the_ID();
                     $icone_area_e_lazer = get_sub_field('imagem_icones');
                     $descricao_area_e_lazer = get_sub_field('descricao_comodos');
                     if ($count <= 3) {
-                      $class = 'w-32 md:w-32 lg:w-32';
+                      $class = 'w-24 md:w-24 lg:w-24';
                     } else {
-                      $class = 'w-32 sm:w-32 lg:w-32 ';
+                      $class = 'w-24 sm:w-24 lg:w-24 ';
                       //width 126pxs5 
                     }
               ?>
@@ -157,7 +157,7 @@ $post_id = get_the_ID();
                     </div>
               <?php
                     if ($count === 3) {
-                      echo '</div><div class="justify-center md:gap-2 lg:justify-around flex flex-wrap lg:gap-8 mx-0 mt-6 gap-6">';
+                      echo '</div><div class="gap-6 mx-2 flex justify-around flex-wrap  mt-4">';
                     }
                   endwhile;
                 endif;
@@ -168,7 +168,7 @@ $post_id = get_the_ID();
         </div>
       </div>
       <div>
-        <div class="w-1/3 sm:mt-8 md:mt-0">
+        <div class="w-1/3 mt-8 sm:mt-8 md:mt-0">
           <div class="w-60 h-60 mx-4 border bg-grennCorretor px-3 py-3 text-white area-corretor">
             <div class="flex flex-col gap-5">
               <h1 class="text-sm text-center">Fale com Um corretor</h1>
@@ -213,7 +213,7 @@ $post_id = get_the_ID();
         <div class="swiper-pagination"></div>
       </div>
     </div>
-    <div class="mt-12 bg-red-500 px-3 py-3 mb-4 max-w-5xl mx-auto">
+    <div class="mx-5 lg:mt-12 bg-red-500 px-3 py-3 mb-4 max-w-5xl lg:mx-auto">
       <h2>Central Para negocio</h2>
       <p>
         Supremma Imóveis

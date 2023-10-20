@@ -124,17 +124,17 @@ $post_id = get_the_ID();
   </section>
   <section>
     <div class="sm:flex flex-col md:flex md:flex-row max-w-5xl mx-auto justify-between items-center text-white">
-      <div class="w-4/6">
+      <div class="w-4/6 mx-auto md:mx-0">
         <div>
           <div class="mt-8">
-            <div class="bg-slate-800 w-2/4 h-12 px-2 flex items-center">
+            <div class="bg-slate-800 w-full md:w-2/4 h-12 px-2 flex items-center">
               <p class="text-3xl flex items-center">
                 <?php echo get_field('casa_ou_apo', $post->ID) ?> R$:<?php echo get_field('aluguel') ?>
               </p>
             </div>
           </div>
           <div class="mt-16 border bg-gray-100 text-slate-800 py-4 px-4">
-            <p class="mt-2 text-md uppercase mx-2">Informações da casa</p>
+            <p class="text-center mt-2 text-md uppercase mx-2 md:text-start">Informações da casa</p>
             <div class="gap-6 mx-2 flex justify-around flex-wrap  mt-4">
               <?php
               $count = 0;
@@ -157,7 +157,7 @@ $post_id = get_the_ID();
                     </div>
               <?php
                     if ($count === 3) {
-                      echo '</div><div class="sm:justify-center md:gap-2 lg:justify-around flex flex-wrap lg:gap-8 mx-0 mt-6 gap-6">';
+                      echo '</div><div class="justify-center md:gap-2 lg:justify-around flex flex-wrap lg:gap-8 mx-0 mt-6 gap-6">';
                     }
                   endwhile;
                 endif;
@@ -168,13 +168,13 @@ $post_id = get_the_ID();
         </div>
       </div>
       <div>
-        <div class="w-1/3">
+        <div class="w-1/3 sm:mt-8 md:mt-0">
           <div class="w-60 h-60 mx-4 border bg-grennCorretor px-3 py-3 text-white area-corretor">
             <div class="flex flex-col gap-5">
               <h1 class="text-sm text-center">Fale com Um corretor</h1>
               <img src="" alt="">
-              <p class="text-3xl text-center">Julio Cesar</p>
-              <a href="">
+              <p class="text-3xl text-center">Whatsaap</p>
+              <a href="" class="text-center">
                 <button class="text-black bg-white mt-6 py-3 px-2 hover:bg-grennHover">Envie uma Mensagem</button>
               </a>
             </div>

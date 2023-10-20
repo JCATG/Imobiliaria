@@ -1,26 +1,28 @@
 <?php
-global $wpdb;
+if (isset($_POST['cadastrar_prop'])) {
 
-$table = $wpdb->prefix . 'proprietarios';
+    global $wpdb;
 
-$charset_collate = $wpdb->get_charset_collate();
+    $table = $wpdb->prefix . 'proprietarios';
 
-//Recupera os valores que o usuario digitar no formulario
-$nome = isset($_POST['nome']) ? sanitize_text_field($_POST['nome']) : '';
-$idade = isset($_POST['idade']) ? sanitize_text_field($_POST['idade']) : '';
-$endereco = isset($_POST['endereco']) ? sanitize_text_field($_POST['endereco']) : '';
-$cpf = isset($_POST['cpf']) ? sanitize_text_field($_POST['cpf']) : '';
-$rg = isset($_POST['rg']) ? sanitize_text_field($_POST['rg']) : '';
-$estado_civil = isset($_POST['estado_civil']) ? sanitize_text_field($_POST['estado_civil']) : '';
-$renda = isset($_POST['renda']) ? sanitize_text_field($_POST['renda']) : '';
+    $charset_collate = $wpdb->get_charset_collate();
 
-$existing_user = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table WHERE cpf = %s", $cpf));
+    //Recupera os valores que o usuario digitar no formulario
+    $nome = isset($_POST['nome']) ? sanitize_text_field($_POST['nome']) : '';
+    $idade = isset($_POST['idade']) ? sanitize_text_field($_POST['idade']) : '';
+    $endereco = isset($_POST['endereco']) ? sanitize_text_field($_POST['endereco']) : '';
+    $cpf = isset($_POST['cpf']) ? sanitize_text_field($_POST['cpf']) : '';
+    $rg = isset($_POST['rg']) ? sanitize_text_field($_POST['rg']) : '';
+    $estado_civil = isset($_POST['estado_civil']) ? sanitize_text_field($_POST['estado_civil']) : '';
+    $renda = isset($_POST['renda']) ? sanitize_text_field($_POST['renda']) : '';
 
-if ($existing_user) {
-    echo '<p>Usuário com o CPF ' . esc_html($cpf) . ' já está cadastrado.</p>';
-    //ajustarv para que quando der o erro nao inserir no banco, 
-} else {
-    $sql = "CREATE TABLE IF NOT EXISTS $table (
+    $existing_user = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table WHERE cpf = %s", $cpf));
+
+    if ($existing_user) {
+        echo '<p>Usuário com o CPF ' . esc_html($cpf) . ' já está cadastrado.</p>';
+        //ajustarv para que quando der o erro nao inserir no banco, 
+    } else {
+        $sql = "CREATE TABLE IF NOT EXISTS $table (
     id INT NOT NULL AUTO_INCREMENT,
     nome varchar(50) NOT NULL,
     idade int,
@@ -31,23 +33,23 @@ if ($existing_user) {
     renda float,
     PRIMARY KEY (id)
     ) $charset_collate;";
+    }
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+    dbDelta($sql);
+
+    $wpdb->insert(
+        $table,
+        array(
+            'nome' => $nome,
+            'idade' => $idade,
+            'endereco' => $endereco,
+            'cpf' => $cpf,
+            'rg' => $rg,
+            'estado_civil' => $estado_civil,
+            'renda' => $renda
+        )
+    );
 }
-require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-dbDelta($sql);
-
-$wpdb->insert(
-    $table,
-    array(
-        'nome' => $nome,
-        'idade' => $idade,
-        'endereco' => $endereco,
-        'cpf' => $cpf,
-        'rg' => $rg,
-        'estado_civil' => $estado_civil,
-        'renda' => $renda
-    )
-);
-
 //exclui dados do banco
 
 ?>
@@ -61,11 +63,10 @@ $wpdb->insert(
     <input type="text" placeholder="Telefone:" name="tel">
     <input type="text" placeholder="Estado Civil" name="estado_civil">
     <input type="text" placeholder="Renda mensal:" name="renda">
-    <input type="submit" value="Cadastrar">
+    <input type="submit" value="Cadastrar" name="cadastrar_prop">
 </form>
 
 <?php
-
 global $wpdb;
 $table_name = $wpdb->prefix . 'proprietarios';
 
@@ -75,35 +76,92 @@ if (isset($_POST['delete-client'])) {
         $wpdb->delete($table_name, ['id' => $client_id]);
     }
 }
-$query = "SELECT * FROM $table_name";
-$results = $wpdb->get_results($query);
+
+if (isset($_POST['search'])) {
+    $search_name = sanitize_text_field($_POST['search-name']);
+    $query = $wpdb->prepare("SELECT * FROM $table_name WHERE nome LIKE %s", '%' . $search_name . '%');
+    $results = $wpdb->get_results($query);
+} else {
+    $query = "SELECT * FROM $table_name";
+    $results = $wpdb->get_results($query);
+}
 
 if ($results) {
-    echo '<ul class = "clientes_info">';
+    echo '<form method="post">';
+    echo '<input type="text" name="search-name" id="search-name" placeholder="Pesquisar pelo nome">';
+    echo '<button type="submit" name="search" class="btn-pesquisar">Pesquisar</button>';
+    echo '</form>';
+    echo '<table class="clientes_info">';
+    echo '<tr>';
+    echo '<th>Nome</th>';
+    echo '<th>Idade</th>';
+    echo '<th>Endereço</th>';
+    echo '<th>CPF</th>';
+    echo '<th>RG</th>';
+    echo '<th>Estado Civil</th>';
+    echo '<th>Renda Mensal</th>';
+    echo '<th>Excluir</th>';
+    echo '</tr>';
     foreach ($results as $row) {
-        echo '<li>Nome:' . esc_html($row->nome) . '</li>';
-        echo '<li>Idade: ' . esc_html($row->idade) . '</li>';
-        echo '<li>Endereço: ' . esc_html($row->endereco) . '</li>';
-        echo '<li>Cpf: ' . esc_html($row->cpf) . '</li>';
-        echo '<li>Rg: ' . esc_html($row->rg) . '</li>';
-        echo '<li>Estado Civil: ' . esc_html($row->estado_civil) . '</li>';
-        echo '<li>Renda Mensal: ' . esc_html($row->renda) . '</li>';
+        echo '<tr>';
+        echo '<td>' . esc_html($row->nome) . '</td>';
+        echo '<td>' . esc_html($row->idade) . '</td>';
+        echo '<td>' . esc_html($row->endereco) . '</td>';
+        echo '<td>' . esc_html($row->cpf) . '</td>';
+        echo '<td>' . esc_html($row->rg) . '</td>';
+        echo '<td>' . esc_html($row->estado_civil) . '</td>';
+        echo '<td>' . esc_html($row->renda) . '</td>';
 
+        echo '<td>';
         echo '<form method="post">';
         echo '<input type="hidden" name="client-id" value="' . $row->id . '">';
-        echo '<button type="submit" name="delete-client">Excluir</button>';
+        echo '<button type="submit" class="excluir-btn" name="delete-client" onclick="return confirm(\'Tem certeza que deseja excluir este cliente?\');">Excluir</button>';
         echo '</form>';
-    echo '</ul>';
-
+        echo '</td>';
+        echo '</tr>';
     }
+    echo '</table>';
 }
 ?>
 <style>
-    .clientes_info {
-        display: flex;
-        gap: 18px;
+    .btn-pesquisar {
+        padding: 5px;
     }
-    p{
+
+    .message-full {
+        display: none;
+        word-wrap: break-word;
+        /* Adicione esta linha */
+    }
+
+    .user_nao_encontado,
+    .read-more,
+    .read-less {
         color: red;
+        cursor: pointer;
+    }
+
+    .clientes_info {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .clientes_info th,
+    .clientes_info td {
+        padding: 8px;
+        text-align: left;
+    }
+
+    .clientes_info th {
+        background-color: #f2f2f2;
+    }
+
+    .clientes_info tr:nth-child(even) {
+        background-color: #fdfdfd;
+    }
+
+    .message-box {
+        width: 200px;
     }
 </style>
