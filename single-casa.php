@@ -38,19 +38,26 @@ $post_id = get_the_ID();
           justify-content: center;
           align-items: center;
           height: 400px;
+          margin-right: 0 !important;
         }
 
         .swiper-slide img {
           display: block;
-          width: 433px;
+          width: 534px;
           height: 433px;
           object-fit: cover;
         }
-
+        @media only screen and (max-width:764px){
+          .swiper-slide img {
+            width: 100% ;
+          }
+        }
         .swiper-pagination {
           margin-top: 40px;
         }
-
+        .swiper-pagination-bullet{
+          background-color: white;
+        }
         .icones {
           background-color: white;
           width: 60px;
@@ -84,7 +91,7 @@ $post_id = get_the_ID();
         }
       </style>
     </head>
-    <div class="swiper mySwiper1 max-w-5xl">
+    <div class="swiper mySwiper1">
       <div class="swiper-wrapper">
         <?php
         $images = get_field('galeria_de_fotos');
@@ -108,15 +115,37 @@ $post_id = get_the_ID();
         slidesPerView: 3,
         spaceBetween: 30,
         pagination: {
-          el: ".swiper-pagination",
+          el: ".mySwiper1 .swiper-pagination",
           clickable: true,
+        },
+        breakpoints: {
+          280:{
+            slidesPerView: 1, 
+            spaceBetween: 10,
+          },
+          480:{
+            slidesPerView: 1, 
+            spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 2, 
+            spaceBetween: 10, 
+          },
+          992: {
+            slidesPerView: 2,
+            spaceBetween: 20, 
+          },
+          1200: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
         },
       });
       var swiper2 = new Swiper(".mySwiper2", {
         slidesPerView: 3,
         spaceBetween: 30,
         pagination: {
-          el: ".swiper-pagination",
+          el: ".mySwiper2 .swiper-pagination",
           clickable: true,
         },
       });
@@ -124,10 +153,10 @@ $post_id = get_the_ID();
   </section>
   <section>
     <div class="sm:flex flex-col md:flex md:flex-row max-w-5xl mx-auto justify-between items-center text-white">
-      <div class="w-4/6 mx-auto md:mx-0">
-        <div>
+      <div class="w-11/12 md:w-4/6 mx-auto md:mx-0">
+        <div class="md:mx-2 lg:mx-0">
           <div class="mt-8">
-            <div class="bg-slate-800 w-full md:w-2/4 h-12 px-2 flex items-center">
+            <div class="bg-slate-800 w-full md:w-2/4 p-4 px-2 flex items-center">
               <p class="text-3xl flex items-center">
                 <?php echo get_field('casa_ou_apo', $post->ID) ?> R$:<?php echo get_field('aluguel') ?>
               </p>
@@ -167,8 +196,8 @@ $post_id = get_the_ID();
           </div>
         </div>
       </div>
-      <div>
-        <div class="w-1/3 mt-8 sm:mt-8 md:mt-0">
+      <div class="flex justify-center md:justify-normal">
+        <div class="md:w-1/3 mt-8 sm:mt-8 md:mt-0">
           <div class="w-60 h-60 mx-4 border bg-grennCorretor px-3 py-3 text-white area-corretor">
             <div class="flex flex-col gap-5">
               <h1 class="text-sm text-center">Fale com Um corretor</h1>
@@ -215,13 +244,11 @@ $post_id = get_the_ID();
     </div>
     <div class="mx-5 lg:mt-12 bg-red-500 px-3 py-3 mb-4 max-w-5xl lg:mx-auto">
       <h2>Central Para negocio</h2>
-      <p>
-        Supremma Imóveis
+      <p class="w-11/12 md:w-full">
+        Satin Imóveis
         Rua Capitão Avelino Bastos, 765 - Centro
-        Cruzeiro / São Paulo – CEP 12.701-440
-        (12) 3211-8685 / (12) 99152-4814
-        CRECI- 32590 J
-        atendimento@supremmaimoveis.com.br
+        Cruzeiro / São Paulo – CEP 11.111-1110
+        (12) 3211-2121/ (12) 12345-1239
       </p>
     </div>
   </section>
