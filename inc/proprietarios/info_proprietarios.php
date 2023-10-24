@@ -4,8 +4,8 @@
 function add_custom_proprietarios_menu()
 {
     add_menu_page(
-        'Proprietarios',
-        'Proprietarios',
+        'Cadastro Proprietarios',
+        'Cadastro Proprietarios',
         'manage_options',
         'proprietarios-list',
         'display_proprietarios_page',

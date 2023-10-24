@@ -19,7 +19,7 @@ if (isset($_POST['cadastrar_prop'])) {
     $existing_user = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table WHERE cpf = %s", $cpf));
 
     if ($existing_user) {
-        echo '<p>Usuário com o CPF ' . esc_html($cpf) . ' já está cadastrado.</p>';
+        echo '<p>Proprietario com o CPF ' . esc_html($cpf) . ' já está cadastrado.</p>';
         //ajustarv para que quando der o erro nao inserir no banco, 
     } else {
         $sql = "CREATE TABLE IF NOT EXISTS $table (
@@ -93,6 +93,7 @@ if ($results) {
     echo '</form>';
     echo '<table class="clientes_info">';
     echo '<tr>';
+    echo '<th>id</th>';
     echo '<th>Nome</th>';
     echo '<th>Idade</th>';
     echo '<th>Endereço</th>';
@@ -104,6 +105,7 @@ if ($results) {
     echo '</tr>';
     foreach ($results as $row) {
         echo '<tr>';
+        echo '<td>' . esc_html($row->id) . '</td>';
         echo '<td>' . esc_html($row->nome) . '</td>';
         echo '<td>' . esc_html($row->idade) . '</td>';
         echo '<td>' . esc_html($row->endereco) . '</td>';

@@ -28,6 +28,8 @@ require_once get_template_directory() . '/inc/custom-post-type/custom_post_type_
 require_once get_template_directory() . '/inc/Clientes/clientes.php';
 require_once get_template_directory() . '/inc/formulario/formulario-clientes.php';
 require_once get_template_directory() . '/inc/proprietarios/info_proprietarios.php';
+require_once get_template_directory() . '/inc/imoveis/imoveis.php';
+
 
 //remove itens admin
 require_once get_template_directory() . '/inc/remove-items/comentarios.php';

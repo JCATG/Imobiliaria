@@ -85,6 +85,16 @@
   .widget-wrapper figure img{
     border-radius: 100%;
   }
+  @media only screen and (max-width:600px){
+    .widget-wrapper figure img{
+     width: unset;
+    }
+    .corretores .widget-wrapper .alignwide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  }
 </style>
 
 <section>
@@ -221,13 +231,15 @@
 </section>
 <section>
   <div class="sm:flex flex-col md:justify-around md:flex-row lg:max-w-5xl mx-auto flex  text-center items-center gap-4 mt-0">
-    <div class="w-2/4 text-lg mb-16">
+    <div class="w-4/5 mt-2 text-lg mb-16 md:w-2/4 md:mt-0">
       <h2 class="text-2xl mb-3 uppercase">Sobre a empresa</h2>
       <p class="text-left">
         <?php echo get_field('_texto_sobre_empresa') ?>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate aliquam temporibus cum rem quos?
+         Mollitia quia architecto cum odio! Atque quas dicta velit, deserunt similique temporibus excepturi suscipit sit et?
       </p>
     </div>
-    <div class="w-2/5 flex flex-col mb-4 area-corretores ">
+    <div class="w-4/5 mx-2 lg:w-2/5 lg:mx-0 first-letter flex flex-col mb-4 area-corretores ">
       <h2 class="text-lg uppercase border-b-2 text-red-500 text-md ">Corretores</h2>
       <div class="bg-slate-600 text-white flex flex-col gap-3 h-80 overflow-y-scroll py-2 px-2 ">
         <div class="flex flex-col gap-2">

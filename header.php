@@ -12,20 +12,33 @@
     <title>Imobiliaria</title>
     <?php wp_head(); ?>
     <style>
-        @media only screen and (min-width:690px) {
+        @media only screen and (min-width:768px) {
             .menu {
                 display: flex;
                 gap: 32px;
+                flex-direction: row;
+
             }
-            @media only screen and (min-width:879px){
-                .menu{
-                    flex-direction: row;
-                }
+
+            .menu li a:hover {
+                border-bottom: 1px solid red;
             }
         }
-        .menu li a:hover {
-            border-bottom: 1px solid red;
+
+        @media only screen and (max-width:768px) {
+            .menu {
+                margin: 0 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+
+            }
+
+            .menu li a:hover {
+                border-bottom: none;
+            }
         }
+        
     </style>
 </head>
 
@@ -34,8 +47,8 @@
         <nav>
             <div class="max-w-5xl mx-auto flex justify-between items-center gap-4 pt-4 md:pt-8 px-4 md:pb-6">
                 <div class="text-black ">
-                    <a href="#">
-                        Aqui vai a logo
+                    <a href="<?php echo esc_url(home_url('/')); ?>">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/imagens/casa.png'; ?>" alt="erro" class="w-8">
                     </a>
                 </div>
                 <div class="hidden md:flex gap-2 text-black">
@@ -56,8 +69,8 @@
                 </div>
             </div>
             <div class="mt-4 menu-mobile bg-pink_100 text-white_100 md:hidden">
-                <div class="flex sm:flex-col md:flex-row justify-center">
-                    <div class="flex-col control_main_menu hidden bg-red-300 text-white">
+                <div class="flex sm:flex-col md:flex-row ">
+                    <div class="flex-col control_main_menu hidden bg-red-500 text-white w-full">
                         <?php
                         wp_nav_menu(
                             array(
