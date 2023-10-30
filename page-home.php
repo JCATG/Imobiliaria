@@ -8,6 +8,7 @@
 
 ?>
 <?php get_header(); ?>
+<?php get_template_part('/inc/newsletter/newsleter.php') ?>
 <style>
   /* Ajustando largura das imagens do apo e casa na home */
   .largura_imagem{
@@ -184,10 +185,10 @@
     <div class="popup-overlay" id="popupOverlay">
       <div class="popup-content">
         <button id="closePopup"><i class="ph ph-x text-black text-2xl"></i></button>
-        <form action="" method="post">
-          <input type="text" placeholder="Nome:" class="border px-1 py-3 mt-2">
-          <input type="text" placeholder="Email:" class="border px-1 py-3 mt-4">
-          <button class="mt-10 text-2xl border py-2 px-6 bg-red-500 text-white hover:bg-red-400">Enviar</button>
+        <form method="post">
+          <input type="text" placeholder="Nome:" name="nome_new" class="border px-1 py-3 mt-2">
+          <input type="text" placeholder="Email:" name="email_new" class="border px-1 py-3 mt-4">
+          <button class="mt-10 text-2xl border py-2 px-6 bg-red-500 text-white hover:bg-red-400" type="submit" name="cad_newsleter">Enviar</button>
         </form>
       </div>
     </div>

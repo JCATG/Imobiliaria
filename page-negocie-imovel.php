@@ -17,7 +17,7 @@
 
 <?php $id = get_the_ID();  ?>
 <?php get_header(); ?>
-<div class="bg-graypage">
+<div class="bg-gray-500 text-white">
     <div class="w-full max-w-5xl mx-auto">
         <div class="mx-3 flex-col flex lg:mx-0 lg:flex flex-wrap gap-6">
             <p class="text-2xl mt-4">Informe abaixo suas Informações</p>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="mt-14">
                     <p class="text-2xl mb-2">Informações do Imovel</p>
-                    <div class="flex flex-col md:flex-row md:gap-3">
+                    <div class="flex flex-col md:flex-row md:gap-3 text-gray-800">
                         <select name="tipo_imovel" required class="p-3 text-md">
                             <option value="Apartamento">Apartamento</option>
                             <option value="Casa">Casa</option>

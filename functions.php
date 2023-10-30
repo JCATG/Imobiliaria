@@ -29,6 +29,8 @@ require_once get_template_directory() . '/inc/Clientes/clientes.php';
 require_once get_template_directory() . '/inc/formulario/formulario-clientes.php';
 require_once get_template_directory() . '/inc/proprietarios/info_proprietarios.php';
 require_once get_template_directory() . '/inc/imoveis/imoveis.php';
+require_once get_template_directory() . '/inc/newsletter/newsleter.php';
+
 
 
 //remove itens admin
