@@ -8,6 +8,8 @@
     <link href="/dist/output.css" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="icon" href="./assets/imagens/casa.png" type="image/png">
+    <link rel="icon" href="./assets/imagens/casa.png" type="image/x-icon">
+
 
     <title>Imobiliaria</title>
     <?php wp_head(); ?>

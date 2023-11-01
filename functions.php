@@ -1,22 +1,23 @@
 <?php
+
 /**
  * Enqueue scripts and styles tailwind css
  */
 define('_S_VERSION', '1.0.0');
 
- function tailwindcss_setup_scripts(){
+function tailwindcss_setup_scripts()
+{
     wp_enqueue_style('tailwind_setup-style', get_stylesheet_uri(), array(), _S_VERSION);
-    wp_style_add_data('tailwindcss_setup-style','rtl', 'replace');
-    wp_enqueue_style('tailwindcss_output', get_template_directory_uri(). '/dist/output.css', array(), _S_VERSION);
-
+    wp_style_add_data('tailwindcss_setup-style', 'rtl', 'replace');
+    wp_enqueue_style('tailwindcss_output', get_template_directory_uri() . '/dist/output.css', array(), _S_VERSION);
 }
 
 add_action('wp_enqueue_scripts', 'tailwindcss_setup_scripts');
 
 register_nav_menus(
     array(
-      'my-main-menu'=>'Main Menu',
-      'menu-footer'=>'Menu Footer'
+        'my-main-menu' => 'Main Menu',
+        'menu-footer' => 'Menu Footer'
     )
 );
 
@@ -38,6 +39,9 @@ require_once get_template_directory() . '/inc/remove-items/comentarios.php';
 require_once get_template_directory() . '/inc/remove-items/posts.php';
 require_once get_template_directory() . '/inc/remove-items/midia.php';
 
+//send email
+require_once get_template_directory() . '/inc/email/email.php';
+
 add_action('after_setup_theme', function () {
     add_role(
         'clientes',
@@ -52,27 +56,29 @@ add_action('after_setup_theme', function () {
 
 // config the page-home width principal
 
-function set_custom_home_page_template($template) {
-  if (is_home()) {
-      $template = locate_template(array('page-home.php'));
-  }
-  return $template;
+function set_custom_home_page_template($template)
+{
+    if (is_home()) {
+        $template = locate_template(array('page-home.php'));
+    }
+    return $template;
 }
 add_filter('template_include', 'set_custom_home_page_template');
 
 
-add_action('widgets_init','sidebar_corretores');
+add_action('widgets_init', 'sidebar_corretores');
 
-function sidebar_corretores(){
+function sidebar_corretores()
+{
     register_sidebar(
         array(
-            'name'=>'Sidebar Corretores',
-            'id'=>'sidebar-1',
-            'description'=>'Sidebar to used to Corretores',
-            'before_widget'=>'<div class ="widget-wrapper">',
-            'after_widget'=>'</div>',
-            'before_title'=>'<h2 class="widget-title">',
-            'after_title'=>'</h2>'
+            'name' => 'Sidebar Corretores',
+            'id' => 'sidebar-1',
+            'description' => 'Sidebar to used to Corretores',
+            'before_widget' => '<div class ="widget-wrapper">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="widget-title">',
+            'after_title' => '</h2>'
         )
     );
 }

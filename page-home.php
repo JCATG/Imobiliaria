@@ -10,6 +10,19 @@
 <?php get_header(); ?>
 <?php get_template_part('/inc/newsletter/newsleter.php') ?>
 <style>
+  /* Estilize os elementos ocultos */
+.element {
+  opacity: 0; /* Comece com a opacidade 0 para escondê-los */
+  transform: translateY(20px); /* Mova-os para baixo */
+  transition: opacity 0.5s, transform 2s; /* Adicione uma transição suave */
+}
+
+/* Adicione uma classe para mostrar os elementos quando visíveis na janela de visualização */
+.element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
   /* Ajustando largura das imagens do apo e casa na home */
   .largura_imagem{
       height: 200px;
@@ -112,7 +125,7 @@
 <section>
   <!--CASAS EM DESTAQUE -->
   <div class="bg-gray-100">
-    <div class="max-w-5xl mx-auto justify-center items-center pt-6 pb-6">
+    <div class="max-w-5xl mx-auto justify-center items-center pt-6 pb-6 element">
       <div class="flex justify-center">
         <h1 class="text-3xl text-center mb-4 mt-4 uppercase"> Casas em Destaque</h1>
       </div>
@@ -144,7 +157,7 @@
 </section>
 
 <section>
-  <div class="w-full mt-6 mb-6 justify-center items-center flex bg-red-500 max-w-5xl mx-auto">
+  <div class="w-full mt-6 mb-6 justify-center items-center flex bg-red-500 max-w-5xl mx-auto element">
     <div class="max-w-5xl mx-auto  justify-center items-center pt-6 pb-6">
       <div class="md:flex gap-7  mx-3 flex-wrap sm:gap-3 flex justify-around">
         <div class="w-60 h-60 bg-gray-700 hover:bg-gray-600 transition-all text-white ">
@@ -203,7 +216,7 @@
       <div class="flex justify-center">
         <h1 class="text-3xl text-center mb-4 mt-4"> Apartamentos</h1>
       </div>
-      <div class="flex justify-center flex-wrap items-center gap-24 md:gap-24 lg:justify-around lg:flex-nowrap mx-auto md:flex-row lg:gap-8">
+      <div class="flex justify-center flex-wrap items-center gap-24 md:gap-24 lg:justify-around lg:flex-nowrap mx-auto md:flex-row lg:gap-8 element">
         <?php $args = ['post_type' => 'apartamento', 'posts_per_page' => 3];
         $query = new WP_Query($args);
         foreach ($query->posts as $post) { ?>
@@ -231,7 +244,7 @@
   </div>
 </section>
 <section>
-  <div class="sm:flex flex-col md:justify-around md:flex-row lg:max-w-5xl mx-auto flex  text-center items-center gap-4 mt-0">
+  <div class="sm:flex flex-col md:justify-around md:flex-row lg:max-w-5xl mx-auto flex  text-center items-center gap-4 mt-0 element">
     <div class="w-4/5 mt-2 text-lg mb-16 md:w-2/4 md:mt-0">
       <h2 class="text-2xl mb-3 uppercase">Sobre a empresa</h2>
       <p class="text-left">
@@ -277,5 +290,23 @@
   });
 
   //most post
+  // Função para verificar quando os elementos estão visíveis na janela de visualização
+function checkVisibility() {
+  const elements = document.querySelectorAll('.element');
+
+  elements.forEach(element => {
+    const rect = element.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    if (rect.top <= windowHeight * 0.75) {
+      element.classList.add('visible');
+    }
+  });
+}
+
+// Execute a função quando a página carregar e quando houver scroll
+window.addEventListener('load', checkVisibility);
+window.addEventListener('scroll', checkVisibility);
+
 </script>
 <?php get_footer(); ?>

@@ -215,11 +215,11 @@ $post_id = get_the_ID();
   <section>
     <div class="max-w-5xl mx-auto mt-6">
       <div class="swiper mySwiper2 max-w-5xl">
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper flex justify-center flex-wrap lg:justify-normal lg:flex-nowrap gap-2">
           <?php $args = ['post_type' => 'apartamento'];
           $query = new WP_Query($args);
           foreach ($query->posts as $post) { ?>
-            <div class="estilo_casa_desc_home">
+            <div class="estilo_casa_desc_home ">
               <a href="<?php echo get_permalink() ?>">
                 <div class="w-64">
                   <img class="h-full largura_imagem" src="<?php echo get_field('foto_principal', $post->ID)  ?>">
