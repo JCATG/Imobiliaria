@@ -25,9 +25,30 @@ function send_email()
 
         $uploads_dir = wp_upload_dir();
         $caminhoCompleto = $uploads_dir['path'] . '/' . $nomeArquivo;
+
         if (move_uploaded_file($arquivo['tmp_name'], $caminhoCompleto)) {
-            echo 'Upload feito com sucesso. O arquivo foi salvo em: ';
+            // Insira a imagem no banco de dados do WordPress
+            $attachment = array(
+                'post_title' => $nomeArquivo,
+                'post_content' => '',
+                'post_status' => 'inherit',
+            );
+
+            $attachment_id = wp_insert_attachment($attachment, $caminhoCompleto);
+
+            if (!is_wp_error($attachment_id)) {
+                require_once('wp-admin/includes/image.php');
+                $attach_data = wp_generate_attachment_metadata($attachment_id, $caminhoCompleto);
+                wp_update_attachment_metadata($attachment_id, $attach_data);
+
+                echo 'Upload feito com sucesso. O arquivo foi salvo no banco de dados do WordPress.';
+            } else {
+                echo 'Erro ao inserir imagem no banco de dados.';
+            }
+        } else {
+            echo 'Erro ao fazer upload da imagem.';
         }
+
 
         $mensagem_alert = '';
 
@@ -79,4 +100,3 @@ function send_email()
 }
 
 add_action('init', 'send_email');
-?>

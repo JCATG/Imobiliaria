@@ -65,9 +65,9 @@ if (isset($_POST['cadastrar_imovel'])) {
             'uf' => $uf,
             'numero_escritura' => $numero_escritura,
             'largura_terreno' => $largura_terreno,
-            'qtd_quarto' => $qdt_quarto,
+            'qtd_quarto' => $qtd_quarto,
             'qtd_sala' => $qtd_sala,
-            'gtd_garagem' => $qtd_garagem,
+            'qtd_garagem' => $qtd_garagem,
             'qtd_banheiro' => $qtd_banheiro,
             'tipo_imovel' => $tipo_imovel,
             'status_imovel' => $status_imovel,
@@ -96,7 +96,11 @@ if (isset($_POST['cadastrar_imovel'])) {
     <input type="text" placeholder="quantidade de garagem" name="qtd_garagem">
     <input type="text" placeholder="quantidade de banheiro" name="qtd_banheiro">
     <input type="text" placeholder="tipo imovel" name="tipo_imovel">
-    <input type="text" placeholder="status do imovel" name="status_imovel">
+    <select name="status_imovel" required class="w-full p-3 mt-2 text-md md:mt-0 md:w-1/5">
+                           <option value="status">Status Imovel</option>
+                            <option value="disponivel">Disponivel</option>
+                            <option value="alugado">Alugado</option>
+    </select>
     <input type="text" placeholder="finalidade" name="finalidade">
     <input type="text" placeholder="valor do imovel" name="valor_imovel">
     <input type="text" placeholder="iptu" name="iptu">
@@ -139,8 +143,9 @@ if ($results) {
     echo '<th>UF</th>';
     echo '<th>Numero Escritura</th>';
     echo '<th>largura terreno</th>';
-    echo '<th>qtd sala</th>';
     echo '<th>qtd quarto</th>';
+    echo '<th>qtd sala</th>';
+    echo '<th>qtd garagem</th>';
     echo '<th>qtd banheiro</th>';
     echo '<th>tipo_imovel</th>';
     echo '<th>status_imovel</th>';
@@ -156,10 +161,12 @@ if ($results) {
         echo '<td>' . esc_html($row->endereco) . '</td>';
         echo '<td>' . esc_html($row->bairro) . '</td>';
         echo '<td>' . esc_html($row->UF) . '</td>';
+
         echo '<td>' . esc_html($row->numero_escritura) . '</td>';
         echo '<td>' . esc_html($row->largura_terreno) . '</td>';
-        echo '<td>' . esc_html($row->qtd_sala) . '</td>';
         echo '<td>' . esc_html($row->qtd_quarto) . '</td>';
+        echo '<td>' . esc_html($row->qtd_sala) . '</td>';
+        echo '<td>' . esc_html($row->qtd_garagem) . '</td>';
         echo '<td>' . esc_html($row->qtd_banheiro) . '</td>';
         echo '<td>' . esc_html($row->tipo_imovel) . '</td>';
         echo '<td>' . esc_html($row->status_imovel) . '</td>';
@@ -167,8 +174,6 @@ if ($results) {
         echo '<td>' . esc_html($row->valor_imovel) . '</td>';
         echo '<td>' . esc_html($row->iptu) . '</td>';
         echo '<td>' . esc_html($row->referencia) . '</td>';
-
-
 
         echo '<td>';
         echo '<form method="post">';
@@ -203,6 +208,7 @@ if ($results) {
         border-collapse: collapse;
         width: 100%;
         max-width: 100%;
+        display: flex;
     }
 
     .clientes_info th,

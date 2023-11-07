@@ -8,16 +8,20 @@
 
 ?>
 <style>
-    .image-preview img {
-        min-width: 100px;
-        min-width: 100px;
+    #image-preview img {
+        width: 100px !important;
+        height: 100px !important;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 12px;
+        gap: 12px;
     }
 </style>
 <?php get_template_part('/inc/fomrulario/formulario-clientes.php') ?>
 
 <?php $id = get_the_ID();  ?>
 <?php get_header(); ?>
-<div class="bg-gray-500 text-white">
+<div class="bg-gray-500 ">
     <div class="w-full max-w-5xl mx-auto">
         <div class="mx-3 flex-col flex lg:mx-0 lg:flex flex-wrap gap-6">
             <p class="text-2xl mt-4">Informe abaixo suas Informações</p>
@@ -28,7 +32,7 @@
             }
             ?>
             <a name="form-anchor"></a>
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 <div class="w-full md:w-full lg:mx-0">
                     <input type="text" placeholder="Nome" class="w-full md:w-3/5 border p-2" name="name">
                     <input type="text" placeholder="Celular" class="border w-full md:w-2/6 mt-2 p-2" name="form_cel">

@@ -31,13 +31,14 @@ require_once get_template_directory() . '/inc/formulario/formulario-clientes.php
 require_once get_template_directory() . '/inc/proprietarios/info_proprietarios.php';
 require_once get_template_directory() . '/inc/imoveis/imoveis.php';
 require_once get_template_directory() . '/inc/newsletter/newsleter.php';
+require_once get_template_directory() . '/inc/graficos/graficos.php';
+
 
 
 
 //remove itens admin
 require_once get_template_directory() . '/inc/remove-items/comentarios.php';
 require_once get_template_directory() . '/inc/remove-items/posts.php';
-require_once get_template_directory() . '/inc/remove-items/midia.php';
 
 //send email
 require_once get_template_directory() . '/inc/email/email.php';
