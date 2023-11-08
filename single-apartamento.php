@@ -203,7 +203,7 @@ $post_id = get_the_ID();
               <h1 class="text-sm text-center">Fale com Um corretor</h1>
               <img src="" alt="">
               <p class="text-3xl text-center">Whatsaap</p>
-              <a href="" class="text-center">
+              <a href=" https://api.whatsapp.com/send?phone=5512991252252." class="text-center">
                 <button class="text-black bg-white mt-6 py-3 px-2 hover:bg-grennHover">Envie uma Mensagem</button>
               </a>
             </div>

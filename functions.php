@@ -36,6 +36,7 @@ require_once get_template_directory() . '/inc/graficos/graficos.php';
 
 
 
+
 //remove itens admin
 require_once get_template_directory() . '/inc/remove-items/comentarios.php';
 require_once get_template_directory() . '/inc/remove-items/posts.php';
