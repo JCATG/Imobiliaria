@@ -21,7 +21,7 @@
 
 <?php $id = get_the_ID();  ?>
 <?php get_header(); ?>
-<div class="bg-gray-500 ">
+<div class="bg-graypage">
     <div class="w-full max-w-5xl mx-auto">
         <div class="mx-3 flex-col flex lg:mx-0 lg:flex flex-wrap gap-6">
             <p class="text-2xl mt-4">Informe abaixo suas Informações</p>

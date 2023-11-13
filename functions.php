@@ -84,3 +84,5 @@ function sidebar_corretores()
         )
     );
 }
+// Adiciona suporte à pesquisa
+add_theme_support('html5', array('search-form'));

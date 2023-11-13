@@ -10,6 +10,9 @@
 <?php get_header(); ?>
 <?php get_template_part('/inc/newsletter/newsleter.php') ?>
 <style>
+  html {
+    scroll-behavior: smooth;
+  }
   /* Estilize os elementos ocultos */
   .element {
     opacity: 0;
@@ -75,6 +78,8 @@
     min-height: 400px;
     max-width: 90%;
     text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    margin-bottom: 50px;
   }
 
   #closePopup {
@@ -92,9 +97,8 @@
   .estilo_casa_desc_home {
     /* border: 1px solid red; */
     padding: 20px;
-    background-color: #FFFFFF;
-    border-radius: 12px;
-    box-shadow: 3px 3px 3px 3px gray;
+    background-color: #30475E;
+    color: white;
   }
 
   /* Corretores */
@@ -145,10 +149,10 @@
 
   <section>
     <!--CASAS EM DESTAQUE -->
-    <div class="bg-gray-100">
+    <div class="bg-graypage" id="casa">
       <div class="max-w-5xl mx-auto justify-center items-center pt-6 pb-6 element">
         <div class="flex justify-center">
-          <h1 class="text-3xl text-center mb-4 mt-4 uppercase"> Casas em Destaque</h1>
+          <h1 class="text-3xl text-center mb-4 mt-4 uppercase font-bold text-myblue"> Casas em Destaque</h1>
         </div>
         <div class="flex justify-center flex-wrap items-center gap-24 md:gap-24 lg:justify-around mx-auto md:flex-row lg:gap-8">
           <?php $args = ['post_type' => 'casa', 'posts_per_page' => 3];
@@ -158,16 +162,12 @@
               <a href="<?php echo get_permalink() ?>">
                 <div class="w-64">
                   <img class="h-full largura_imagem" src="<?php echo get_field('foto_principal', $post->ID)  ?>">
-                  <p class="text-2xl mt-2">Cidade: <?php echo get_field('cidade', $post->ID) ?></p>
-                  <p class="text-2xl mt-2">Bairro: <?php echo get_field('bairro', $post->ID) ?></p>
-                  <p class="text-2xl mt-2"><?php echo get_field('casa_ou_apo', $post->ID) ?>: R$<?php echo get_field('aluguel', $post->ID) ?></p>
-                  <ul class="flex flex-wrap">
-                    <li><?php echo get_field('numero_de_quartos', $post->ID) ?> Quartos/</li>
-                    <li><?php echo get_field('numero_de_sala', $post->ID) ?> Salas /</li>
-                    <li><?php echo get_field('numero_de_cozinha', $post->ID) ?>Cozinha /</li>
-                    <li><?php echo get_field('numero_de_banheiros', $post->ID) ?>Banheiro /</li>
-                    <li><?php echo get_field('cabem_quantos_carros', $post->ID) ?>Garagem /</li>
-                  </ul>
+                  <p class="text-2xl mt-2"><?php echo get_field('cidade', $post->ID) ?></p>
+                  <p class="text-md mt-2"> <span class="text-sm">Bairro:</span> <?php echo get_field('bairro', $post->ID) ?></p>
+                  <p class="text-lg mt-2 gap-2 flex items-center"><span class="text-sm"><?php echo get_field('casa_ou_apo', $post->ID) ?>:</span><span class="text-2xl"><?php echo get_field('aluguel', $post->ID) ?></span></p>
+                  <button class="w-full py-3 mt-2 bg-mybluepastel">
+                    Ver mais
+                  </button>
                 </div>
               </a>
             </div>
@@ -175,13 +175,14 @@
           ?>
         </div>
       </div>
+    </div>
   </section>
 
   <section>
-    <div class="w-full mt-6 mb-6 justify-center items-center flex bg-red-500 max-w-5xl mx-auto element">
+    <div class="w-full md:mt-6 md:mb-6 justify-center items-center flex bg-mymarrom max-w-5xl mx-auto element">
       <div class="max-w-5xl mx-auto  justify-center items-center pt-6 pb-6">
         <div class="md:flex gap-7  mx-3 flex-wrap sm:gap-3 flex justify-around">
-          <div class="w-60 h-60 bg-gray-700 hover:bg-gray-600 transition-all text-white ">
+          <div class="w-60 h-60 bg-myblue transition-all text-white ">
             <p class="flex justify-center "><i class="ph ph-pencil text-3xl"></i></p>
             <h2 class="flex text-center justify-center text-2xl">
               <?php echo get_field('_card_titulo_1', $post->ID); ?>
@@ -199,7 +200,7 @@
               <img src="<?php echo get_template_directory_uri() . '/assets/imagens/casa.png'; ?>" alt="erro">
             </h2>
           </div>
-          <div class="w-60 h-60  bg-gray-700 hover:bg-gray-600 transition-all text-white">
+          <div class="w-60 h-60  bg-myblue  transition-all text-white">
             <p class="flex justify-center "><i class="ph ph-handshake text-3xl"></i></p>
             <h2 class="flex text-center justify-center text-2xl">
               <?php echo get_field('_card_titulo_2') ?>
@@ -262,10 +263,10 @@
   </section>
 
   <section>
-    <div class="bg-gray-100 pb-4">
+    <div class="bg-graypage pb-4" id="apartamento">
       <div class="max-w-4xl mx-auto mt-4">
         <div class="flex justify-center">
-          <h1 class="text-3xl text-center mb-4 mt-4"> Apartamentos</h1>
+          <h1 class="text-3xl text-center mb-4 mt-4 text-myblue font-bold"> Apartamentos</h1>
         </div>
         <div class="flex justify-center flex-wrap items-center gap-24 md:gap-24 lg:justify-around lg:flex-nowrap mx-auto md:flex-row lg:gap-8 element">
           <?php $args = ['post_type' => 'apartamento', 'posts_per_page' => 3];
@@ -274,17 +275,13 @@
             <div class="estilo_casa_desc_home">
               <a href="<?php echo get_permalink() ?>">
                 <div class="w-64">
-                  <img class="h-full largura_imagem" src="<?php echo get_field('foto_principal', $post->ID)  ?>">
-                  <p class="text-2xl mt-2">Cidade: <?php echo get_field('cidade', $post->ID) ?></p>
-                  <p class="text-2xl mt-2">Bairro: <?php echo get_field('bairro', $post->ID) ?></p>
-                  <p class="text-2xl mt-2"> <?php echo get_field('casa_ou_apo', $post->ID) ?>: R$ <?php echo get_field('aluguel', $post->ID) ?></p>
-                  <ul class="flex flex-wrap">
-                    <li><?php echo get_field('numero_de_quartos', $post->ID) ?> Quartos/</li>
-                    <li><?php echo get_field('numero_de_sala', $post->ID) ?> Salas /</li>
-                    <li><?php echo get_field('numero_de_cozinha', $post->ID) ?>Cozinha /</li>
-                    <li><?php echo get_field('numero_de_banheiros', $post->ID) ?>Banheiro /</li>
-                    <li><?php echo get_field('cabem_quantos_carros', $post->ID) ?>Garagem /</li>
-                  </ul>
+                <img class="h-full largura_imagem" src="<?php echo get_field('foto_principal', $post->ID)  ?>">
+                  <p class="text-2xl mt-2"><?php echo get_field('cidade', $post->ID) ?></p>
+                  <p class="text-md mt-2"> <span class="text-sm">Bairro: </span> <?php echo get_field('bairro', $post->ID) ?></p>
+                  <p class="text-2xl mt-2 gap-2 flex items-center"><span class="text-sm"><?php echo get_field('casa_ou_apo', $post->ID) ?>:</span><span class="text-2xl"><?php echo get_field('aluguel', $post->ID) ?></span></p>
+                  <button class="w-full py-3 mt-2 bg-mybluepastel">
+                    Ver mais
+                  </button>
                 </div>
               </a>
             </div>
@@ -295,18 +292,18 @@
     </div>
   </section>
   <section>
-    <div class="sm:flex flex-col md:justify-around md:flex-row lg:max-w-5xl mx-auto flex  text-center items-center gap-4 mt-0 element">
+    <div class="sm:flex flex-col md:mx-2 md:justify-around md:flex-row lg:max-w-5xl lg:mx-auto flex  text-center items-center gap-4 mt-0 element" id="quem-somos">
       <div class="w-4/5 mt-2 text-lg mb-16 md:w-2/4 md:mt-0">
-        <h2 class="text-2xl mb-3 uppercase">Sobre a empresa</h2>
-        <p class="text-left">
+        <h2 class="text-2xl mb-3 uppercase text-mymarrom font-bold ">Sobre a empresa</h2>
+        <p class="text-left tex-md text-mymarrom font-bold">
           <?php echo get_field('_texto_sobre_empresa') ?>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate aliquam temporibus cum rem quos?
           Mollitia quia architecto cum odio! Atque quas dicta velit, deserunt similique temporibus excepturi suscipit sit et?
         </p>
       </div>
-      <div class="w-4/5 mx-2 lg:w-2/5 lg:mx-0 first-letter flex flex-col mb-4 area-corretores ">
-        <h2 class="text-lg uppercase border-b-2 text-red-500 text-md ">Corretores</h2>
-        <div class="bg-slate-600 text-white flex flex-col gap-3 h-80 overflow-y-scroll py-2 px-2 ">
+      <div class="w-4/5 mx-2 lg:w-2/5 lg:mx-0 first-letter flex flex-col mb-4 area-corretores" id="corretores">
+        <h2 class="text-lg uppercase border-b-2 text-mymarrom text-md font-bold mt-2 ">Corretores</h2>
+        <div class="bg-myblue text-white flex flex-col gap-3 h-80 overflow-y-scroll py-2 px-2 ">
           <div class="flex flex-col gap-2">
             <div class="corretores">
               <?php if (is_active_sidebar('sidebar-1')) : ?>
@@ -321,14 +318,12 @@
 </body>
 
 <script>
-  const bodycolor = document.querySelector('body')
   const acessarButtons = document.querySelectorAll('.popup-button');
   const popupOverlay = document.getElementById('popupOverlay');
   const closePopupButton = document.getElementById('closePopup');
 
   function openPopup() {
     popupOverlay.style.display = 'flex';
-    bodycolor.style.background = 'black';
   }
 
   function closePopup() {

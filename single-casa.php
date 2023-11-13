@@ -2,7 +2,7 @@
 $post_id = get_the_ID();
 ?>
 <?php get_header(); ?>
-<section>
+<section class="bg-graypage">
   <section>
 
     <head>
@@ -47,17 +47,21 @@ $post_id = get_the_ID();
           height: 433px;
           object-fit: cover;
         }
-        @media only screen and (max-width:764px){
+
+        @media only screen and (max-width:764px) {
           .swiper-slide img {
-            width: 100% ;
+            width: 100%;
           }
         }
+
         .swiper-pagination {
           margin-top: 40px;
         }
-        .swiper-pagination-bullet{
+
+        .swiper-pagination-bullet {
           background-color: white;
         }
+
         .icones {
           background-color: white;
           width: 60px;
@@ -119,21 +123,21 @@ $post_id = get_the_ID();
           clickable: true,
         },
         breakpoints: {
-          280:{
-            slidesPerView: 1, 
+          280: {
+            slidesPerView: 1,
             spaceBetween: 10,
           },
-          480:{
-            slidesPerView: 1, 
+          480: {
+            slidesPerView: 1,
             spaceBetween: 10,
           },
           768: {
-            slidesPerView: 2, 
-            spaceBetween: 10, 
+            slidesPerView: 2,
+            spaceBetween: 10,
           },
           992: {
             slidesPerView: 2,
-            spaceBetween: 20, 
+            spaceBetween: 20,
           },
           1200: {
             slidesPerView: 3,
@@ -156,9 +160,9 @@ $post_id = get_the_ID();
       <div class="w-11/12 md:w-4/6 mx-auto md:mx-0">
         <div class="md:mx-2 lg:mx-0">
           <div class="mt-8">
-            <div class="bg-slate-800 w-full md:w-2/4 p-4 px-2 flex items-center">
+            <div class="bg-myblue w-full md:w-2/4 p-4 px-2 flex items-center">
               <p class="text-3xl flex items-center">
-                <?php echo get_field('casa_ou_apo', $post->ID) ?> R$:<?php echo get_field('aluguel') ?>
+                <?php echo get_field('casa_ou_apo', $post->ID) ?> R$:<?php echo get_field('aluguel') ?>,00
               </p>
             </div>
           </div>
@@ -193,6 +197,34 @@ $post_id = get_the_ID();
               endwhile;
               ?>
             </div>
+
+          </div>
+          <div class="w-full bg-mybluepastel mt-4">
+            <div class="mx-4 w-3/4 flex flex-col">
+              <div>
+                <p class="uppercase my-2">Informações detalhadas</p>
+                <p>Essa belissima casa se encontra em um otimo estado de conservação, se encontra na Rua
+                  <?php echo get_field('rua', $post->ID) ?>, no numero <?php echo get_field('numero_da_casa', $post->ID) ?>. <br>
+                  Tem como ponto de referência: <?php echo get_field('complemento', $post->ID) ?> <br>
+                  Alem das Informações Acima. <br>
+                  Possui <br>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <?php echo get_field('numero_de_quartos', $post->ID) ?>: Quartos 
+                <?php echo get_field('numero_de_sala', $post->ID) ?>: Sala de estar 
+                <?php echo get_field('numero_de_banheiros', $post->ID) ?>: Banheiros
+                <?php echo get_field('cabem_quantos_carros', $post->ID) ?>: Garagem
+                <?php echo get_field('numero_de_quartos', $post->ID) ?>: Quartos 
+                <?php echo get_field('numero_de_quartos', $post->ID) ?>: Quartos 
+              </div>
+              <div class="flex flex-col">
+                <p>Tem Suite: <?php echo get_field('tem_suite', $post->ID) ?></p>
+                <p>Tem Piscina: <?php echo get_field('tem_piscina', $post->ID) ?></p>
+                <p>Tem Area de lazer: <?php echo get_field('tem_area_de_lazer', $post->ID) ?></p>
+                <p>Tem Area de serviço: <?php echo get_field('tem_area_de_serviço', $post->ID) ?></p>
+              </div>
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -212,27 +244,23 @@ $post_id = get_the_ID();
       </div>
     </div>
   </section>
-  <section>
+  <section">
     <div class="max-w-5xl mx-auto mt-6">
-      <div class="swiper mySwiper2 max-w-5xl">
-        <div class="swiper-wrapper">
+      <div class="max-w-5xl">
+        <div class="flex flex-wrap gap-2 justify-center mb-4 md:mb-0 md:justify-normal">
           <?php $args = ['post_type' => 'casa'];
           $query = new WP_Query($args);
           foreach ($query->posts as $post) { ?>
-            <div class="estilo_casa_desc_home">
+            <div class="px-4 py-4 bg-myblue text-white">
               <a href="<?php echo get_permalink() ?>">
                 <div class="w-64">
-                  <img class="h-full largura_imagem" src="<?php echo get_field('foto_principal', $post->ID)  ?>">
-                  <p class="text-2xl mt-2">Cidade:<?php echo get_field('cidade', $post->ID) ?></p>
-                  <p class="text-2xl mt-2">Bairro:<?php echo get_field('bairro', $post->ID) ?></p>
-                  <p class="text-2xl mt-2"><?php echo get_field('casa_ou_apo', $post->ID) ?>:R$ <?php echo get_field('aluguel', $post->ID) ?></p>
-                  <ul class="flex flex-wrap">
-                    <li><?php echo get_field('numero_de_quartos', $post->ID) ?> Quartos/</li>
-                    <li><?php echo get_field('numero_de_sala', $post->ID) ?> Salas /</li>
-                    <li><?php echo get_field('numero_de_cozinha', $post->ID) ?>Cozinha /</li>
-                    <li><?php echo get_field('numero_de_banheiros', $post->ID) ?>Banheiro /</li>
-                    <li><?php echo get_field('cabem_quantos_carros', $post->ID) ?>Garagem /</li>
-                  </ul>
+                <img class="h-full largura_imagem" src="<?php echo get_field('foto_principal', $post->ID)  ?>">
+                  <p class="text-2xl mt-2"><?php echo get_field('cidade', $post->ID) ?></p>
+                  <p class="text-md mt-2"> <span class="text-sm">Bairro:</span> <?php echo get_field('bairro', $post->ID) ?></p>
+                  <p class="text-2xl mt-2 gap-2"><span class="text-sm"><?php echo get_field('casa_ou_apo', $post->ID) ?></span>R$<?php echo get_field('aluguel', $post->ID) ?></p>
+                  <button class="w-full py-3 mt-2 bg-mybluepastel">
+                    Ver mais
+                  </button>
                 </div>
               </a>
             </div>
@@ -242,7 +270,7 @@ $post_id = get_the_ID();
         <div class="swiper-pagination"></div>
       </div>
     </div>
-    <div class="mx-5 lg:mt-12 bg-red-500 px-3 py-3 mb-4 max-w-5xl lg:mx-auto">
+    <div class="mx-5 lg:mt-12 bg-myblue px-3 py-3 mb-4 max-w-5xl lg:mx-auto">
       <h2>Central Para negocio</h2>
       <p class="w-11/12 md:w-full">
         Satin Imóveis
@@ -251,7 +279,6 @@ $post_id = get_the_ID();
         (12) 3211-2121/ (12) 12345-1239
       </p>
     </div>
-  </section>
-
 </section>
 <?php get_footer(); ?>
+</section>

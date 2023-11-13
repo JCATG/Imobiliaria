@@ -40,6 +40,9 @@
                 border-bottom: none;
             }
         }
+        header{
+            background-color: white;
+        }
         
     </style>
 </head>

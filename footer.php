@@ -4,17 +4,22 @@
       /* Cor do Instagram */
       background: linear-gradient(45deg, #E4405F, #F77737, #BC2A8D);
    }
+   .texto-footer{
+      width: 500px;
+      max-width: 90%;
+   }
 </style>
 <footer>
    <div class="mx-auto max-w-5xl bg-slate-800">
       <div class="flex justify-between flex-col mx-6 items-center md:mx-4 md:flex-row lg:mx-4">
-         <div class="flex flex-row mt-4 text-white md:flex-col lg:mt-0">
-            <?php wp_nav_menu(
-               array(
-                  'theme-location' => 'menu-footer'
-               )
-            )
-            ?>
+         <div class="flex w-4/5 gap-2 md:gap-0 md:w-full  flex-row mt-4 text-white md:flex-col lg:mt-0">
+            <div class="texto-footer">
+               <p>
+                   Nossa imobiliaria é Destaque na regiao , campeã em vendas 
+                   , e alugueis de imoveis. Aqui voce encontra otimo atendimento e
+                   segurança na hora de alugar seu imovel.
+               </p>
+            </div>
 
             <div class="flex gap-4 flex-wrap pt-4 pb-4">
                <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center">
