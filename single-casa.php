@@ -204,26 +204,19 @@ $post_id = get_the_ID();
               <div>
                 <p class="uppercase my-2">Informações detalhadas</p>
                 <p>Essa belissima casa se encontra em um otimo estado de conservação, se encontra na Rua
-                  <?php echo get_field('rua', $post->ID) ?>, no numero <?php echo get_field('numero_da_casa', $post->ID) ?>. <br>
-                  Tem como ponto de referência: <?php echo get_field('complemento', $post->ID) ?> <br>
+                  <?php echo get_field('rua') ?>, no numero <?php echo get_field('numero_da_casa') ?>. <br>
+                  Tem como ponto de referência: <?php echo get_field('complemento') ?> <br>
                   Alem das Informações Acima. <br>
                   Possui <br>
               </div>
               <div class="flex flex-wrap gap-2">
-                <?php echo get_field('numero_de_quartos', $post->ID) ?>: Quartos 
-                <?php echo get_field('numero_de_sala', $post->ID) ?>: Sala de estar 
-                <?php echo get_field('numero_de_banheiros', $post->ID) ?>: Banheiros
-                <?php echo get_field('cabem_quantos_carros', $post->ID) ?>: Garagem
-                <?php echo get_field('numero_de_quartos', $post->ID) ?>: Quartos 
-                <?php echo get_field('numero_de_quartos', $post->ID) ?>: Quartos 
+                <?php echo get_field('numero_de_quartos') ?>: Quartos
+                <?php echo get_field('numero_de_sala') ?>: Sala de estar
+                <?php echo get_field('numero_de_banheiros') ?>: Banheiros
+                <?php echo get_field('cabem_quantos_carros') ?>: Garagem
+                <?php echo get_field('numero_de_quartos') ?>: Quartos
+                <?php echo get_field('numero_de_quartos') ?>: Quartos
               </div>
-              <div class="flex flex-col">
-                <p>Tem Suite: <?php echo get_field('tem_suite', $post->ID) ?></p>
-                <p>Tem Piscina: <?php echo get_field('tem_piscina', $post->ID) ?></p>
-                <p>Tem Area de lazer: <?php echo get_field('tem_area_de_lazer', $post->ID) ?></p>
-                <p>Tem Area de serviço: <?php echo get_field('tem_area_de_serviço', $post->ID) ?></p>
-              </div>
-              </p>
             </div>
           </div>
         </div>
@@ -254,7 +247,7 @@ $post_id = get_the_ID();
             <div class="px-4 py-4 bg-myblue text-white">
               <a href="<?php echo get_permalink() ?>">
                 <div class="w-64">
-                <img class="h-full largura_imagem" src="<?php echo get_field('foto_principal', $post->ID)  ?>">
+                  <img class="h-full largura_imagem" src="<?php echo get_field('foto_principal', $post->ID)  ?>">
                   <p class="text-2xl mt-2"><?php echo get_field('cidade', $post->ID) ?></p>
                   <p class="text-md mt-2"> <span class="text-sm">Bairro:</span> <?php echo get_field('bairro', $post->ID) ?></p>
                   <p class="text-2xl mt-2 gap-2"><span class="text-sm"><?php echo get_field('casa_ou_apo', $post->ID) ?></span>R$<?php echo get_field('aluguel', $post->ID) ?></p>
@@ -264,6 +257,8 @@ $post_id = get_the_ID();
                 </div>
               </a>
             </div>
+            <?php print_r(get_field("proprietario_rg", get_field("proprietario", $post->ID))) ?>
+
           <?php }
           ?>
         </div>

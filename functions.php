@@ -24,12 +24,14 @@ register_nav_menus(
 //Custom Post Type
 require_once get_template_directory() . '/inc/custom-post-type/custom_post_type_casa.php';
 require_once get_template_directory() . '/inc/custom-post-type/custom_post_type_apartamento.php';
+require_once get_template_directory() . '/inc/custom-post-type/custom_post_type_corretor.php';
+require_once get_template_directory() . '/inc/status/status_imovel.php';
+
+
 
 //opções no admin
 require_once get_template_directory() . '/inc/Clientes/clientes.php';
 require_once get_template_directory() . '/inc/formulario/formulario-clientes.php';
-require_once get_template_directory() . '/inc/proprietarios/info_proprietarios.php';
-require_once get_template_directory() . '/inc/imoveis/imoveis.php';
 require_once get_template_directory() . '/inc/newsletter/newsleter.php';
 require_once get_template_directory() . '/inc/graficos/graficos.php';
 

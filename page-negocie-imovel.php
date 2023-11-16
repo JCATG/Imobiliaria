@@ -21,10 +21,10 @@
 
 <?php $id = get_the_ID();  ?>
 <?php get_header(); ?>
-<div class="bg-graypage">
+<div class="bg-myblue">
     <div class="w-full max-w-5xl mx-auto">
         <div class="mx-3 flex-col flex lg:mx-0 lg:flex flex-wrap gap-6">
-            <p class="text-2xl mt-4">Informe abaixo suas Informações</p>
+            <p class="text-2xl mt-4 uppercase font-bold text-white">Informe abaixo suas Informações</p>
             <?php
             if (isset($_SESSION['mensagem'])) {
                 echo '<p class="message">' . $_SESSION['mensagem'] . '</p>';
@@ -40,7 +40,7 @@
                     <input type="text" placeholder="Cidade" class="border mt-2 w-full md:w-2/6 p-2 md:mt-0" name="cidade">
                 </div>
                 <div class="mt-14">
-                    <p class="text-2xl mb-2">Informações do Imovel</p>
+                    <p class="text-2xl mb-2 uppercase text-white font-bold">Informações do Imovel</p>
                     <div class="flex flex-col md:flex-row md:gap-3 text-gray-800">
                         <select name="tipo_imovel" required class="p-3 text-md">
                             <option value="Apartamento">Apartamento</option>

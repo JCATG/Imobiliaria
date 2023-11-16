@@ -12,44 +12,34 @@
 
 <div class="max-w-5xl mx-auto">
     <div class="mb-4 w-full">
-        <img src="http://localhost:9000/imobiliaria/wp-content/uploads/2023/11/museu.png" alt="erro" class="w-full">
+        <img src="<?php echo get_field('imagem_principal') ?>" alt="erro" class="w-full">
     </div>
-    <div class="flex gap-2">
-        <div class="w-3/5 flex flex-col gap-2">
-            <div class="bg-red-100">
-                <h2>Vantagens e Desvantagens na hora de alugar um imovel</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ab modi inventore, perferendis exercitationem sint eveniet nostrum quos vitae animi maiores quae quasi ullam excepturi nemo aperiam nesciunt amet ipsa.</p>
+    <div class="flex gap-2 flex-wrap mx-4 justify-center md:justify-normal md:flex-nowrap lg:mx-0">
+        <div class="w-full md:w-3/5 flex flex-col gap-2 text-white">
+            <div class="bg-myblue py-4 px-4">
+                <h2 class="text-2xl mb-2">Vantagens e Desvantagens na hora de alugar um imovel</h2>
+                <p><?php echo get_field('vantagem_desvantagem') ?></p>
             </div>
-            <div class="bg-blue-500">
-                <h2>Cuidados que devo tomar na hora de alugar um imovel</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ab modi inventore, perferendis exercitationem sint eveniet nostrum quos vitae animi maiores quae quasi ullam excepturi nemo aperiam nesciunt amet ipsa.</p>
+            <div class="bg-mymarrom py-4 px-4 text-myblue">
+                <h2 class="text-2xl mb-2">Cuidados que devo tomar na hora de alugar um imovel</h2>
+                <p><?php echo get_field('cuidados') ?></p>
             </div>
-            <div class="bg-green-500">
-                <h2>Vantagens em alugar com uma imobiliaria</h2>
-                <ul>
-                    <li>Segurança</li>
-                    <li>Rapidez</li>
-                    <li>sem dor de cabeça</li>
-                    <li>Segurança</li>
-                    <li>Rapidez</li>
-                    <li>sem dor de cabeça</li>
-                    <li>Segurança</li>
-                    <li>Rapidez</li>
-                    <li>sem dor de cabeça</li>
-                    <li>sem dor de cabeça</li>
-                </ul>
+            <div class="bg-myblue py-4 px-4 no-underline">
+                <h2 class="text-2xl mb-2">Vantagens em alugar com uma imobiliaria</h2>
+               <div class="flex flex-wrap">
+               <?php echo get_field('vantagens_alug_imobili') ?>
+               </div>
             </div>
-            <div class="bg-red-500">
-                <h2>Como identificar portais Imobiliarios falsos</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ab modi inventore, perferendis exercitationem sint eveniet nostrum quos vitae animi maiores quae quasi ullam excepturi nemo aperiam nesciunt amet ipsa.</p>
+            <div class="bg-mybluepastel py-4 px-4 mb-4">
+                <h2 class="text-2xl mb-2">Como identificar portais Imobiliarios falsos</h2>
+                <p><?php echo get_field('portais_falsos') ?></p>
             </div>
         </div>
-        <div class="bg-green-100 w-2/5">
-            <div class="flex flex-col">
-                <div class="mx-auto">
-                    <p class="mb-2">Dicas na hora de alugar um Apartamento</p>
-                    <iframe width="350" height="270" src="https://www.youtube.com/embed/RGUYb-hivrc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    <!-- https://www.youtube.com/watch?v=zcVRctNa0hU -->
+        <div class="w-full md:w-2/5">
+            <div class="flex flex-col mx-2/4">
+                <div class="mx-auto mb-4 md:mb-0">
+                    <p class="mb-2 text-2xl text-myblue">Dicas na hora de alugar um Apartamento</p>
+                    <iframe width="350" height="270" src="<?php echo get_field('video') ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>
             </div>
         </div>

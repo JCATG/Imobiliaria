@@ -13,6 +13,7 @@
   html {
     scroll-behavior: smooth;
   }
+
   /* Estilize os elementos ocultos */
   .element {
     opacity: 0;
@@ -78,7 +79,7 @@
     min-height: 400px;
     max-width: 90%;
     text-align: center;
-    background: rgba(0, 0, 0, 0.7);
+    background: #30475e;
     margin-bottom: 50px;
   }
 
@@ -151,6 +152,78 @@
     <!--CASAS EM DESTAQUE -->
     <div class="bg-graypage" id="casa">
       <div class="max-w-5xl mx-auto justify-center items-center pt-6 pb-6 element">
+        <div class="bg-pink_100 flex items-center justify-center rounded-full w-12 h-12 text-white_100 hover:bg-white_100 hover:text-pink_100 cursor-pointer" id="modalTrigger">
+          <i class="ph ph-funnel text-2xl"></i>
+        </div>
+        <form action="<?php echo esc_url(home_url('/search/')); ?>" method="POST">
+          <div class="bg-myblue text-white absolute z-10 rounded-lg shadow-lg mt-2" style="width: 320px; height: 500px; display: none;" id="modal">
+            <div class="mx-4 my-6">
+              <div>
+                <p class="uppercase">Filtrar Imoveis</p>
+              </div>
+              <div class="py-1">
+                <p>Quartos</p>
+                <div>
+                  <select class="bg-mybluepastel text-white p-2 mt-2 w-full bg-white_100 text-preto_500 input-text-filter" id="mod_tipo_quarto" name="qtd_quarto">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="mais">3+</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="py-1">
+                <p>Sala de Estar</p>
+                <div>
+                  <select class="bg-mybluepastel text-white p-2 mt-2 w-full bg-white_100 text-preto_500 input-text-filter" id="mod_camas" name="qtd_sala">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="mais">3+</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="py-1">
+                <p>Banheiros</p>
+                <div>
+                  <select class="bg-mybluepastel text-white p-2 mt-1 w-full  input-text-filter" id="mod_banheiros" name="qtd_banheiros">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="mais">3+</option>
+                  </select>
+                </div>
+              </div>
+              <div class="py-1">
+                <p>Garagem</p>
+                <div>
+                  <select class="p-2 mt-2 w-full bg-mybluepastel text-white input-text-filter" id="mod_garagem" name="qtd_garagem">
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                  </select>
+                </div>
+              </div>
+              <div class="py-1">
+                <p>Casa ou Apartamento</p>
+                <div>
+                  <select class="p-2 mt-2 w-full bg-mybluepastel text-white input-text-filter" id="mod_tipo_imovel" name="mod_tipo_imovel">
+                    <option value="casa">Casa</option>
+                    <option value="apartamento">Apartamento</option>
+                  </select>
+                </div>
+              </div>
+              <div class="flex justify-around">
+                <div class="py-4 flex justify-between">
+                  <a id="mod_filter_but" class="p-2 bg-mybluepastel text-white cursor-pointer w-full" style="width: 300px; max-width:96%; margin:auto;">
+                    <input type="submit" value="Filtrar" class="font-bold text-center">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
         <div class="flex justify-center">
           <h1 class="text-3xl text-center mb-4 mt-4 uppercase font-bold text-myblue"> Casas em Destaque</h1>
         </div>
@@ -219,12 +292,12 @@
       </div>
       <div class="popup-overlay" id="popupOverlay">
         <div class="popup-content">
-          <button id="closePopup"><i class="ph ph-x text-black text-2xl"></i></button>
+          <button id="closePopup"><i class="ph ph-x text-white text-2xl"></i></button>
           <form method="post">
-            <div class="formulario_newsletter">
+            <div class="formulario_newsletter text-sm text-white">
               <input type="text" placeholder="Nome:" name="nome_newsletter" class="border px-1 py-3 mt-2">
               <input type="text" placeholder="Email:" name="email_newsletter" class="border px-1 py-3 mt-4">
-              <select name="news_quarto" id="">
+              <select name="news_quarto" id="" class="bg-mybluepastel">
                 <option value="quarto">Quantidade de Quartos</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -232,7 +305,7 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
               </select>
-              <select name="news_garagem" id="">
+              <select name="news_garagem" id="" class="bg-mybluepastel">
                 <option value="Garagem p/quantos carros">Garagem para quantos carros</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -240,20 +313,20 @@
                 <option value="sem garagem">sem garagem</option>
 
               </select>
-              <select name="news_banheiro" id="">
+              <select name="news_banheiro" id="" class="bg-mybluepastel">
                 <option value="qtd_quartos">Quantidade de Banheiro</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
               </select>
-              <select name="news_tipo_imovel" id="">
+              <select name="news_tipo_imovel" id="" class="bg-mybluepastel">
                 <option value="tipo">Tipo Imovel</option>
                 <option value="casa">Casa</option>
                 <option value="apartamento">Apartamento</option>
               </select>
             </div>
-            <button class="mt-4 w-full text-2xl border py-2 px-6 bg-red-500 text-white hover:bg-red-400" type="submit" name="cad_newsleter">Enviar</button>
+            <button class="mt-4 w-full text-2xl border py-2 px-6 bg-mybluepastel text-white hover:text-myblue hover:bg-white " type="submit" name="cad_newsleter">Enviar</button>
           </form>
         </div>
       </div>
@@ -275,7 +348,7 @@
             <div class="estilo_casa_desc_home">
               <a href="<?php echo get_permalink() ?>">
                 <div class="w-64">
-                <img class="h-full largura_imagem" src="<?php echo get_field('foto_principal', $post->ID)  ?>">
+                  <img class="h-full largura_imagem" src="<?php echo get_field('foto_principal', $post->ID)  ?>">
                   <p class="text-2xl mt-2"><?php echo get_field('cidade', $post->ID) ?></p>
                   <p class="text-md mt-2"> <span class="text-sm">Bairro: </span> <?php echo get_field('bairro', $post->ID) ?></p>
                   <p class="text-2xl mt-2 gap-2 flex items-center"><span class="text-sm"><?php echo get_field('casa_ou_apo', $post->ID) ?>:</span><span class="text-2xl"><?php echo get_field('aluguel', $post->ID) ?></span></p>
@@ -318,6 +391,26 @@
 </body>
 
 <script>
+  var animationDuration = 500;
+
+  document.getElementById("modalTrigger").addEventListener("click", function() {
+    var modal = document.getElementById("modal");
+    var modalWidth = 320;
+
+    if (modal.style.display === "none" || modal.style.display === "") {
+      // Open the modal
+      modal.style.display = "block";
+      modal.style.animation = `modalOpen ${animationDuration}ms forwards`;
+    } else {
+      // Close the modal
+      modal.style.animation = `modalClose ${animationDuration}ms forwards`;
+
+      setTimeout(function() {
+        modal.style.display = "none";
+        modal.style.animation = "";
+      }, animationDuration);
+    }
+  });
   const acessarButtons = document.querySelectorAll('.popup-button');
   const popupOverlay = document.getElementById('popupOverlay');
   const closePopupButton = document.getElementById('closePopup');
