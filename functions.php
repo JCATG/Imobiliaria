@@ -34,6 +34,8 @@ require_once get_template_directory() . '/inc/Clientes/clientes.php';
 require_once get_template_directory() . '/inc/formulario/formulario-clientes.php';
 require_once get_template_directory() . '/inc/newsletter/newsleter.php';
 require_once get_template_directory() . '/inc/graficos/graficos.php';
+require_once get_template_directory() . '/inc/InteresseCliente/interesse_cliente.php';
+
 
 
 
@@ -88,3 +90,24 @@ function sidebar_corretores()
 }
 // Adiciona suporte à pesquisa
 add_theme_support('html5', array('search-form'));
+
+
+// Função para exibir o conteúdo do widget
+
+function exibir_widget_personalizado() {
+    echo '<div class="seu-widget-personalizado">';
+
+    // Chame a função que retorna seu gráfico aqui
+    // Exemplo: echo sua_funcao_de_grafico();
+    
+    echo '</div>';
+}
+
+// Função de registro do widget
+function registrar_widget_personalizado() {
+    // Nome do widget, função de exibição, configurações do widget
+    wp_add_dashboard_widget('widget_personalizado', 'Seu Widget Personalizado', 'exibir_widget_personalizado');
+}
+
+// Ação para registrar o widget
+add_action('wp_dashboard_setup', 'registrar_widget_personalizado');

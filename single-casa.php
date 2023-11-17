@@ -189,9 +189,7 @@ $post_id = get_the_ID();
                       <p class="text-xs text-center"><?php echo $descricao_area_e_lazer; ?></p>
                     </div>
               <?php
-                    if ($count === 3) {
-                      echo '</div><div class="gap-6 mx-2 flex justify-around flex-wrap  mt-4">';
-                    }
+                    
                   endwhile;
                 endif;
               endwhile;
@@ -225,9 +223,9 @@ $post_id = get_the_ID();
         <div class="md:w-1/3 mt-8 sm:mt-8 md:mt-0">
           <div class="w-60 h-60 mx-4 border bg-grennCorretor px-3 py-3 text-white area-corretor">
             <div class="flex flex-col gap-5">
-              <h1 class="text-sm text-center">Fale com Um corretor</h1>
+              <h1 class="text-sm text-center">Fale com</h1>
               <img src="" alt="">
-              <p class="text-3xl text-center">Whatsaap</p>
+              <p class="text-3xl text-center"><?php echo get_field('nome_corretor')?></p>
               <a href="" class="text-center">
                 <button class="text-black bg-white mt-6 py-3 px-2 hover:bg-grennHover">Envie uma Mensagem</button>
               </a>
@@ -257,7 +255,6 @@ $post_id = get_the_ID();
                 </div>
               </a>
             </div>
-            <?php print_r(get_field("proprietario_rg", get_field("proprietario", $post->ID))) ?>
 
           <?php }
           ?>

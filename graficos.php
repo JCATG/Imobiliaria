@@ -1,25 +1,20 @@
 <?php
-global $wpdb;
-$table_name = $wpdb->prefix . 'imoveis';
+$contagem_casas = wp_count_posts('casa')->publish; // Substitua 'casa' pelo seu custom post type
+$contagem_apartamentos = wp_count_posts('apartamento')->publish; // Substitua 'apartamento' pelo seu custom post type
 
-$imoveis = $wpdb->get_results("SELECT status_imovel FROM $table_name");
-
-
-$contagem_alugado = 0;
-$contagem_venda = 0;
-
-foreach ($imoveis as $imovel) {
-    if ($imovel->status_imovel === 'alugado') {
-        $contagem_alugado++;
-    } elseif ($imovel->status_imovel === 'Disponivel') {
-        $contagem_venda++;
-    }
-}
+// Contar corretores
+$args_corretores = array(
+    'post_type' => 'corretores', // Substitua 'corretores' pelo seu custom post type
+    'posts_per_page' => -1,
+);
+$corretores_query = new WP_Query($args_corretores);
+$contagem_corretores = $corretores_query->post_count;
 
 $grafico_data = array(
-    array('Status', 'Quantidade'),
-    array('alugado', $contagem_alugado),
-    array('Disponivel', $contagem_venda),
+    array('Categoria', 'Quantidade'),
+    array('Casas', intval($contagem_casas)),
+    array('Apartamentos', intval($contagem_apartamentos)),
+    array('Corretores', intval($contagem_corretores)),
 );
 ?>
 <div id="grafico"></div>
@@ -33,12 +28,13 @@ $grafico_data = array(
         var data = google.visualization.arrayToDataTable(<?php echo json_encode($grafico_data); ?>);
 
         var options = {
-            title: 'Status dos Imóveis',
-            pieHole: 0.4,
+            title: 'Estatísticas do Portal Imobiliário',
+            legend: { position: 'top' },
+            bars: 'vertical',
+            vAxis: { format: '0' },
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('grafico'));
-
+        var chart = new google.visualization.ColumnChart(document.getElementById('grafico'));
         chart.draw(data, options);
     }
 </script>

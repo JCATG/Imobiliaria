@@ -155,7 +155,7 @@
         <div class="bg-pink_100 flex items-center justify-center rounded-full w-12 h-12 text-white_100 hover:bg-white_100 hover:text-pink_100 cursor-pointer" id="modalTrigger">
           <i class="ph ph-funnel text-2xl"></i>
         </div>
-        <form action="<?php echo esc_url(home_url('/search/')); ?>" method="POST">
+        <form action="<?php echo esc_url(home_url('/busca')); ?>" method="get">
           <div class="bg-myblue text-white absolute z-10 rounded-lg shadow-lg mt-2" style="width: 320px; height: 500px; display: none;" id="modal">
             <div class="mx-4 my-6">
               <div>
@@ -172,7 +172,6 @@
                   </select>
                 </div>
               </div>
-
               <div class="py-1">
                 <p>Sala de Estar</p>
                 <div>
@@ -295,8 +294,8 @@
           <button id="closePopup"><i class="ph ph-x text-white text-2xl"></i></button>
           <form method="post">
             <div class="formulario_newsletter text-sm text-white">
-              <input type="text" placeholder="Nome:" name="nome_newsletter" class="border px-1 py-3 mt-2">
-              <input type="text" placeholder="Email:" name="email_newsletter" class="border px-1 py-3 mt-4">
+              <input type="text" placeholder="Nome:" name="nome_newsletter" class="border px-1 py-3 mt-2 text-myblue">
+              <input type="text" placeholder="Email:" name="email_newsletter" class="border px-1 py-3 mt-4 text-myblue">
               <select name="news_quarto" id="" class="bg-mybluepastel">
                 <option value="quarto">Quantidade de Quartos</option>
                 <option value="1">1</option>

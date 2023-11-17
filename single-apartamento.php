@@ -189,9 +189,6 @@ $post_id = get_the_ID();
                       <p class="text-xs text-center"><?php echo $descricao_area_e_lazer; ?></p>
                     </div>
               <?php
-                    if ($count === 3) {
-                      echo '</div><div class="gap-6 mx-2 flex justify-around flex-wrap  mt-4">';
-                    }
                   endwhile;
                 endif;
               endwhile;
@@ -204,24 +201,24 @@ $post_id = get_the_ID();
               <div>
                 <p class="uppercase my-2">Informações detalhadas</p>
                 <p>Essa belissima casa se encontra em um otimo estado de conservação, se encontra na Rua
-                  <?php echo get_field('rua', $post->ID) ?>, no numero <?php echo get_field('numero_da_casa', $post->ID) ?>. <br>
-                  Tem como ponto de referência: <?php echo get_field('complemento', $post->ID) ?> <br>
+                  <?php echo get_field('rua') ?>, no numero <?php echo get_field('numero_da_casa') ?>. <br>
+                  Tem como ponto de referência: <?php echo get_field('complemento') ?> <br>
                   Alem das Informações Acima. <br>
                   Possui <br>
               </div>
               <div class="flex flex-wrap gap-2">
-                <?php echo get_field('numero_de_quartos', $post->ID) ?>: Quartos 
-                <?php echo get_field('numero_de_sala', $post->ID) ?>: Sala de estar 
-                <?php echo get_field('numero_de_banheiros', $post->ID) ?>: Banheiros
-                <?php echo get_field('cabem_quantos_carros', $post->ID) ?>: Garagem
-                <?php echo get_field('numero_de_quartos', $post->ID) ?>: Quartos 
-                <?php echo get_field('numero_de_quartos', $post->ID) ?>: Quartos 
+                <?php echo get_field('numero_de_quartos') ?>: Quartos 
+                <?php echo get_field('numero_de_sala') ?>: Sala de estar 
+                <?php echo get_field('numero_de_banheiros') ?>: Banheiros
+                <?php echo get_field('cabem_quantos_carros') ?>: Garagem
+                <?php echo get_field('numero_de_quartos') ?>: Quartos 
+                <?php echo get_field('numero_de_quartos') ?>: Quartos 
               </div>
               <div class="flex flex-col">
-                <p>Tem Suite: <?php echo get_field('tem_suite', $post->ID) ?></p>
-                <p>Tem Piscina: <?php echo get_field('tem_piscina', $post->ID) ?></p>
-                <p>Tem Area de lazer: <?php echo get_field('tem_area_de_lazer', $post->ID) ?></p>
-                <p>Tem Area de serviço: <?php echo get_field('tem_area_de_serviço', $post->ID) ?></p>
+                <p>Tem Suite: <?php echo get_field('tem_suite') ?></p>
+                <p>Tem Piscina: <?php echo get_field('tem_piscina') ?></p>
+                <p>Tem Area de lazer: <?php echo get_field('tem_area_de_lazer') ?></p>
+                <p>Tem Area de serviço: <?php echo get_field('tem_area_de_serviço') ?></p>
               </div>
               </p>
             </div>
@@ -232,9 +229,9 @@ $post_id = get_the_ID();
         <div class="md:w-1/3 mt-8 sm:mt-8 md:mt-0">
           <div class="w-60 h-60 mx-4 border bg-grennCorretor px-3 py-3 text-white area-corretor">
             <div class="flex flex-col gap-5">
-              <h1 class="text-sm text-center">Fale com Um corretor</h1>
+              <h1 class="text-sm text-center">Fale com</h1>
               <img src="" alt="">
-              <p class="text-3xl text-center">Whatsaap</p>
+              <p class="text-3xl text-center"><?php echo get_field('nome_corretor')?></p>
               <a href="" class="text-center">
                 <button class="text-black bg-white mt-6 py-3 px-2 hover:bg-grennHover">Envie uma Mensagem</button>
               </a>
