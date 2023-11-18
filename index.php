@@ -8,6 +8,7 @@
 </style>
 <?php
 get_header();
+include_once('./default.php');
 $numero_quartos = isset($_GET['qtd_quarto']) ? sanitize_text_field($_GET['qtd_quarto']) : '';
 $numero_sala = isset($_GET['qtd_sala']) ? sanitize_text_field($_GET['qtd_sala']) : '';
 $numero_banheiro = isset($_GET['qtd_banheiros']) ? sanitize_text_field($_GET['qtd_banheiros']) : '';
@@ -52,7 +53,7 @@ $query = new WP_Query($args);
 // echo '</pre>';
 $posts = $query->posts;
 if (empty($posts)) {
-    echo 'nao encontrado';
+include_once(__DIR__ . '/default.php');
 } ?>
 <div class="flex justify-center flex-wrap items-center gap-24 md:gap-24 lg:justify-around lg:flex-nowrap mx-auto md:flex-row lg:gap-8 element">
 <?php

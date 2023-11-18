@@ -4,8 +4,8 @@
 function add_custom_negociacao_menu()
 {
     add_menu_page(
-        'Negociação Imoveis',
-        'Negociações Imoveis',
+        'Oportunidade de Negocios',
+        'Oportunidade de Negócios',
         'manage_options',
         'Negociação-list',
         'display_negociacao_page',

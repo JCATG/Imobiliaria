@@ -368,9 +368,7 @@
       <div class="w-4/5 mt-2 text-lg mb-16 md:w-2/4 md:mt-0">
         <h2 class="text-2xl mb-3 uppercase text-mymarrom font-bold ">Sobre a empresa</h2>
         <p class="text-left tex-md text-mymarrom font-bold">
-          <?php echo get_field('_texto_sobre_empresa') ?>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate aliquam temporibus cum rem quos?
-          Mollitia quia architecto cum odio! Atque quas dicta velit, deserunt similique temporibus excepturi suscipit sit et?
+          Fundada modestamente há duas décadas, a Imobiliária Primeiros Passos cresceu exponencialmente, tornando-se uma referência no mercado imobiliário. Nossa jornada começou com o compromisso de oferecer soluções personalizadas aos clientes, e hoje, orgulhamo-nos de ser uma imobiliária de destaque, dedicada a realizar sonhos e superar expectativas. Com uma equipe comprometida e uma trajetória de sucesso, continuamos a trilhar o caminho da excelência no setor imobiliário.
         </p>
       </div>
       <div class="w-4/5 mx-2 lg:w-2/5 lg:mx-0 first-letter flex flex-col mb-4 area-corretores" id="corretores">

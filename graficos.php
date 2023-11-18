@@ -8,13 +8,11 @@ $args_corretores = array(
     'posts_per_page' => -1,
 );
 $corretores_query = new WP_Query($args_corretores);
-$contagem_corretores = $corretores_query->post_count;
 
 $grafico_data = array(
     array('Categoria', 'Quantidade'),
     array('Casas', intval($contagem_casas)),
     array('Apartamentos', intval($contagem_apartamentos)),
-    array('Corretores', intval($contagem_corretores)),
 );
 ?>
 <div id="grafico"></div>
