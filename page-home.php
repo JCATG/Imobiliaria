@@ -14,23 +14,17 @@
     scroll-behavior: smooth;
   }
 
-  /* Estilize os elementos ocultos */
   .element {
     opacity: 0;
-    /* Comece com a opacidade 0 para escondê-los */
     transform: translateY(20px);
-    /* Mova-os para baixo */
     transition: opacity 0.5s, transform 2s;
-    /* Adicione uma transição suave */
   }
 
-  /* Adicione uma classe para mostrar os elementos quando visíveis na janela de visualização */
   .element.visible {
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* Ajustando largura das imagens do apo e casa na home */
   .largura_imagem {
     height: 200px;
   }
@@ -94,13 +88,11 @@
   }
 
   .estilo_casa_desc_home {
-    /* border: 1px solid red; */
     padding: 20px;
     background-color: #30475E;
     color: white;
   }
 
-  /* Corretores */
   .corretores .widget-wrapper {
     margin-top: 12px;
   }
@@ -130,6 +122,12 @@
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    .corretores .widget-wrapper figure img{
+      width: 96px;
+    }
+    #modal{
+      margin: 0 24px;
     }
   }
 </style>
@@ -233,7 +231,7 @@
                   <img class="h-full largura_imagem" src="<?php echo get_field('foto_principal', $post->ID)  ?>">
                   <p class="text-2xl mt-2"><?php echo get_field('cidade', $post->ID) ?></p>
                   <p class="text-md mt-2"> <span class="text-sm">Bairro:</span> <?php echo get_field('bairro', $post->ID) ?></p>
-                  <p class="text-lg mt-2 gap-2 flex items-center"><span class="text-sm"><?php echo get_field('casa_ou_apo', $post->ID) ?>:</span><span class="text-2xl"><?php echo get_field('aluguel', $post->ID) ?></span></p>
+                  <p class="text-lg mt-2 gap-2 flex items-center"><span class="text-sm"><?php echo get_field('casa_ou_apo', $post->ID) ?>:</span><span class="text-2xl"><?php echo get_field('aluguel', $post->ID) ?>,00</span></p>
                   <button class="w-full py-3 mt-2 bg-mybluepastel">
                     Ver mais
                   </button>
@@ -347,7 +345,7 @@
                   <img class="h-full largura_imagem" src="<?php echo get_field('foto_principal', $post->ID)  ?>">
                   <p class="text-2xl mt-2"><?php echo get_field('cidade', $post->ID) ?></p>
                   <p class="text-md mt-2"> <span class="text-sm">Bairro: </span> <?php echo get_field('bairro', $post->ID) ?></p>
-                  <p class="text-2xl mt-2 gap-2 flex items-center"><span class="text-sm"><?php echo get_field('casa_ou_apo', $post->ID) ?>:</span><span class="text-2xl"><?php echo get_field('aluguel', $post->ID) ?></span></p>
+                  <p class="text-2xl mt-2 gap-2 flex items-center"><span class="text-sm"><?php echo get_field('casa_ou_apo', $post->ID) ?>:</span><span class="text-2xl"><?php echo get_field('aluguel', $post->ID) ?>,00</span></p>
                   <button class="w-full py-3 mt-2 bg-mybluepastel">
                     Ver mais
                   </button>
@@ -392,11 +390,9 @@
     var modalWidth = 320;
 
     if (modal.style.display === "none" || modal.style.display === "") {
-      // Open the modal
       modal.style.display = "block";
       modal.style.animation = `modalOpen ${animationDuration}ms forwards`;
     } else {
-      // Close the modal
       modal.style.animation = `modalClose ${animationDuration}ms forwards`;
 
       setTimeout(function() {
@@ -426,8 +422,6 @@
     }
   });
 
-  //most post
-  // Função para verificar quando os elementos estão visíveis na janela de visualização
   function checkVisibility() {
     const elements = document.querySelectorAll('.element');
 
@@ -441,7 +435,6 @@
     });
   }
 
-  // Execute a função quando a página carregar e quando houver scroll
   window.addEventListener('load', checkVisibility);
   window.addEventListener('scroll', checkVisibility);
 </script>

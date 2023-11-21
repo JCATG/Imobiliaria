@@ -70,8 +70,8 @@
             font-size: 1.5rem;
             cursor: pointer;
             position: absolute;
-            top: 54px;
-            right: 8px;
+            top: 34px;
+            right: 16px;
         }
 
       
@@ -104,7 +104,7 @@
                     </button>
                 </div>
             </div>
-            <div class="mt-4 menu-mobile bg-pink_100 text-white_100 md:hidden">
+            <div class="menu-mobile bg-pink_100 text-white_100 md:hidden">
                 <div class="flex sm:flex-col md:flex-row ">
                     <div class="flex-col control_main_menu bg-myblue text-white w-full">
                         <?php

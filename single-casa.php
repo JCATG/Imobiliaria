@@ -248,7 +248,7 @@ $post_id = get_the_ID();
                   <img class="h-full largura_imagem" src="<?php echo get_field('foto_principal', $post->ID)  ?>">
                   <p class="text-2xl mt-2"><?php echo get_field('cidade', $post->ID) ?></p>
                   <p class="text-md mt-2"> <span class="text-sm">Bairro:</span> <?php echo get_field('bairro', $post->ID) ?></p>
-                  <p class="text-2xl mt-2 gap-2"><span class="text-sm"><?php echo get_field('casa_ou_apo', $post->ID) ?></span>R$<?php echo get_field('aluguel', $post->ID) ?></p>
+                  <p class="text-2xl mt-2 gap-2"><span class="text-sm"><?php echo get_field('casa_ou_apo', $post->ID) ?></span>R$<?php echo get_field('aluguel', $post->ID) ?>,00</p>
                   <button class="w-full py-3 mt-2 bg-mybluepastel">
                     Ver mais
                   </button>
