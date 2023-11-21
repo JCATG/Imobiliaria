@@ -28,13 +28,10 @@ function send_email_to_matching_subscribers($post_id)
      $assunto = 'Nova propriedade disponível na imobiliária';
 
      foreach ($subscribers as $subscriber) {
-         $nome = $subscriber->nome;
-         $email = $subscriber->email;
-
-          $mensagem = "Olá $nome espero que esteja bem! Uma nova propriedade 
-          foi adicionada à imobiliária que corresponde às suas preferências.
-          Confira a propriedade no link " . get_permalink($post_id) . "'>$post_title.
-          em nosso site.";
+        $nome = $subscriber->nome;
+        $email = $subscriber->email;
+        
+        $mensagem = "Olá $nome, espero que esteja bem!. Temos ótimas notícias para você. Uma nova propriedade foi adicionada à nossa imobiliária e ela parece ser perfeita de acordo com as suas preferências.\nNão perca a chance! Confira mais detalhes sobre a propriedade no seguinte link: " . get_permalink($post_id) ."Fique à vontade para explorar e entrar em contato conosco se tiver alguma dúvida. Estamos aqui para ajudar! Atenciosamente";
 
          wp_mail($email, $assunto, $mensagem);
         }

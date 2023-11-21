@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-function send_email()
+function send_imovel_negociacao()
 {
     if (isset($_POST['submit-form'])) {
         global $wpdb;
@@ -15,7 +15,7 @@ function send_email()
         $email = isset($_POST['email']) ? sanitize_text_field($_POST['email']) : '';
         $celular = isset($_POST['form_cel']) ? sanitize_text_field($_POST['form_cel']) : '';
         $cidade = isset($_POST['cidade']) ? sanitize_text_field($_POST['cidade']) : '';
-        $tipoImovel = isset($_POST['tipo_imovel']) ? sanitize_text_field($_POST['tipo_imovel']) : '';
+        $tipoImovel = isset($_POST['tipoimovel']) ? sanitize_text_field($_POST['tipoimovel']) : '';
         $finalidade = isset($_POST['finalidade']) ? sanitize_text_field($_POST['finalidade']) : '';
         $cidadeImovel = isset($_POST['cidade_imovel']) ? sanitize_text_field($_POST['cidade_imovel']) : '';
         $mensagem = isset($_POST['mensagem']) ? sanitize_text_field($_POST['mensagem']) : '';
@@ -89,7 +89,7 @@ function send_email()
                     )
                 );
                 if (false !== $wpdb->insert_id) {
-                    $mensagem_alert = '<span style="color: green;">Seus dados foram enviados com sucesso</span>';
+                    $mensagem_alert = '<span style="color: white;">Seus dados foram enviados com sucesso</span>';
                 }
             }
         }
@@ -99,4 +99,4 @@ function send_email()
     }
 }
 
-add_action('init', 'send_email');
+add_action('init', 'send_imovel_negociacao');

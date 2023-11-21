@@ -92,7 +92,7 @@ if ($results) {
         echo '<td>' . esc_html($row->email) . '</td>';
         echo '<td>' . esc_html($row->celular) . '</td>';
         echo '<td>' . esc_html($row->cidade) . '</td>';
-        echo '<td>' . esc_html($row->tipoImovel) . '</td>';
+        echo '<td>' . esc_html($row->tipoimovel) . '</td>';
         echo '<td>' . esc_html($row->finalidade) . '</td>';
         echo '<td>' . esc_html($row->cidadeimovel) . '</td>';
         echo '<td class="mensagem">';

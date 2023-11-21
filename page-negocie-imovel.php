@@ -42,7 +42,7 @@
                 <div class="mt-14">
                     <p class="text-2xl mb-2 uppercase text-white font-bold">Informações do Imovel</p>
                     <div class="flex flex-col md:flex-row md:gap-3 text-gray-800">
-                        <select name="tipo_imovel" required class="p-3 text-md">
+                        <select name="tipoimovel" required class="p-3 text-md">
                             <option value="Apartamento">Apartamento</option>
                             <option value="Casa">Casa</option>
                         </select>
