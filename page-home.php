@@ -53,9 +53,7 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    /* Cor da sombra com transparência */
     z-index: 1;
-    /* Certifique-se de que a sombra esteja acima da imagem de fundo */
   }
 
   .popup-overlay {
@@ -152,7 +150,7 @@
     <!--CASAS EM DESTAQUE -->
     <div class="bg-graypage" id="casa">
       <div class="max-w-5xl mx-auto justify-center items-center pt-6 pb-6 element">
-        <div class="bg-pink_100 flex items-center justify-center rounded-full w-12 h-12 text-white_100 hover:bg-white_100 hover:text-pink_100 cursor-pointer" id="modalTrigger">
+        <div class="bg-pink_100 flex items-center justify-center rounded-full w-12 h-12 text-white_100 hover:bg-white_100 hover:text-pink_100 cursor-pointer mx-2 md:mx-0" id="modalTrigger">
           <i class="ph ph-funnel text-2xl"></i>
         </div>
         <form action="<?php echo esc_url(home_url('/busca')); ?>" method="get">
@@ -168,7 +166,8 @@
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                    <option value="mais">3+</option>
+                    <option value="3">4</option>
+                    <option value="3">5</option>
                   </select>
                 </div>
               </div>
@@ -179,7 +178,6 @@
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                    <option value="mais">3+</option>
                   </select>
                 </div>
               </div>
@@ -191,7 +189,6 @@
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                    <option value="mais">3+</option>
                   </select>
                 </div>
               </div>
@@ -215,7 +212,7 @@
               </div>
               <div class="flex justify-around">
                 <div class="py-4 flex justify-between">
-                  <a id="mod_filter_but" class="p-2 bg-mybluepastel text-white cursor-pointer w-full" style="width: 300px; max-width:96%; margin:auto;">
+                  <a id="mod_filter_but" class="p-2 bg-myblue items-center justify-center flex border border-white text-white cursor-pointer w-full hover:bg-white hover:text-myblue" style="width: 300px; max-width:96%; margin:auto;">
                     <input type="submit" value="Filtrar" class="font-bold text-center">
                   </a>
                 </div>
@@ -258,14 +255,14 @@
             <p class="flex justify-center "><i class="ph ph-pencil text-3xl"></i></p>
             <h2 class="flex text-center justify-center text-2xl">
               <?php echo get_field('_card_titulo_1', $post->ID); ?>
-              Newsletter
+              Interesse Personalizado
             </h2>
             <hr class="w-2/4 mx-auto mt-3">
-            <p class="flex justify-center text-sm text-center mt-8">
+            <p class="flex justify-center text-sm text-center mt-8 mb-4">
               <?php echo get_field('_card_texto_1'); ?>
-              Assine nossa Newsletter e receba novidades
+              Receba novidades personalizadas de imoveis.
             </p>
-            <button class="text-lg border mx-auto flex mt-10 px-8 popup-button text-white hover:bg-white hover:text-gray-600">Acessar</button>
+            <button class="text-lg border mx-auto flex mt-0 px-8 popup-button text-white hover:bg-white hover:text-gray-600">Acessar</button>
           </div>
           <div class="w-60 h-60">
             <h2 class="flex text-center justify-center text-2xl">
@@ -281,7 +278,7 @@
             <hr class="w-2/4 mx-auto mt-3">
             <p class="mt-8 text-sm text-center">
               <?php echo get_field('_card_texto_2') ?>
-              Negocie seu imovel com a gente
+              Negocie seu imóvel conosco. 
             </p>
             <button class="text-lg border mx-auto flex mt-6 px-8 mb-1 text-white hover:bg-white hover:text-gray-600">
               <a href="<?= home_url() . '/negocie-seu-imovel' ?>">Acessar </a>
@@ -371,7 +368,7 @@
           Fundada modestamente há duas décadas, a Imobiliária Primeiros Passos cresceu exponencialmente, tornando-se uma referência no mercado imobiliário. Nossa jornada começou com o compromisso de oferecer soluções personalizadas aos clientes, e hoje, orgulhamo-nos de ser uma imobiliária de destaque, dedicada a realizar sonhos e superar expectativas. Com uma equipe comprometida e uma trajetória de sucesso, continuamos a trilhar o caminho da excelência no setor imobiliário.
         </p>
       </div>
-      <div class="w-4/5 mx-2 lg:w-2/5 lg:mx-0 first-letter flex flex-col mb-4 area-corretores" id="corretores">
+      <div class="w-4/5 md:w-2/5 mx-2 lg:w-2/5 lg:mx-0 first-letter flex flex-col mb-4 area-corretores" id="corretores">
         <h2 class="text-lg uppercase border-b-2 text-mymarrom text-md font-bold mt-2 ">Corretores</h2>
         <div class="bg-myblue text-white flex flex-col gap-3 h-80 overflow-y-scroll py-2 px-2 ">
           <div class="flex flex-col gap-2">

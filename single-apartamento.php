@@ -229,11 +229,11 @@ $post_id = get_the_ID();
         <div class="md:w-1/3 mt-8 sm:mt-8 md:mt-0">
           <div class="w-60 h-60 mx-4 border bg-grennCorretor px-3 py-3 text-white area-corretor">
             <div class="flex flex-col gap-5">
-              <h1 class="text-sm text-center">Fale com</h1>
+              <h1 class="text-2xl text-center ">Fale com</h1>
               <img src="" alt="">
               <p class="text-3xl text-center"><?php echo get_field('nome_corretor')?></p>
               <a href="https://api.whatsapp.com/send?phone=<?php echo get_field('telefone_corretor') ?>" class="text-center">
-                <button class="text-black bg-white mt-6 py-3 px-2 hover:bg-grennHover">Envie uma Mensagem</button>
+                <button class="text-black bg-white mt-6 py-3 px-2 text-md ">Envie uma Mensagem</button>
               </a>
             </div>
           </div>

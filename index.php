@@ -4,6 +4,7 @@
     padding: 20px;
     background-color: #30475E;
     color: white;
+    margin-bottom: 12px;
   }
 </style>
 <?php
@@ -55,7 +56,7 @@ $posts = $query->posts;
 if (empty($posts)) {
 include_once(__DIR__ . '/default.php');
 } ?>
-<div class="flex justify-center flex-wrap items-center gap-24 md:gap-24 lg:justify-around lg:flex-nowrap mx-auto md:flex-row lg:gap-8 element">
+<div class="flex justify-center flex-wrap items-center gap-24 md:gap-24 lg:justify-around mx-auto md:flex-row lg:gap-8 element">
 <?php
 foreach ($posts as $post) { ?>
     <div class="estilo_casa_desc_home">

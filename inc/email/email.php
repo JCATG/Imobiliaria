@@ -30,9 +30,11 @@ function send_email_to_matching_subscribers($post_id)
      foreach ($subscribers as $subscriber) {
          $nome = $subscriber->nome;
          $email = $subscriber->email;
-         $tipo_imovel = $subscriber->tipo_imovel;
 
-         $mensagem = "Olá $nome, uma nova propriedade do tipo $tipo_imovel foi adicionada à imobiliária que corresponde às suas preferências. Confira a propriedade <a href='" . get_permalink($post_id) . "'>$post_title</a> em nosso site. <br>";
+          $mensagem = "Olá $nome espero que esteja bem! Uma nova propriedade 
+          foi adicionada à imobiliária que corresponde às suas preferências.
+          Confira a propriedade no link " . get_permalink($post_id) . "'>$post_title.
+          em nosso site.";
 
          wp_mail($email, $assunto, $mensagem);
         }

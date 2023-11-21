@@ -55,7 +55,7 @@
                     </div>
                     <input type="text" placeholder="Cidade" class="w-full mt-2 md:w-full md:t-0 border p-2" name="cidade_imovel">
                     <textarea cols="30" rows="5" class="w-full border mt-2" placeholder="Descrição do imovel" name="mensagem"></textarea>
-                    <p>Envie Fotos do seu imovel</p>
+                    <p class="mt-2 text-white text-md">Envie Fotos do seu imovel</p>
                     <input type="file" name="file" class="text-sm bg-white text-black" />
                     <div id="image-preview" class="flex flex-wrap "></div>
                 </div>
@@ -66,23 +66,14 @@
 </div>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Obtém a referência para o elemento de entrada de arquivo
         const fileInput = document.querySelector('input[type="file"]');
-
-        // Obtém a referência para o elemento onde as miniaturas serão exibidas
         const imagePreview = document.getElementById("image-preview");
-
-        // Adiciona um ouvinte de evento para o evento de alteração do arquivo
         fileInput.addEventListener("change", function() {
-            // Loop através dos arquivos selecionados
             for (const file of fileInput.files) {
-                // Cria um elemento de imagem para a miniatura
                 const img = document.createElement("img");
                 img.className = "thumbnail";
                 img.src = URL.createObjectURL(file); // Define o src da imagem como a URL do arquivo selecionado
                 img.alt = file.name; // Define o texto alternativo como o nome do arquivo
-
-                // Adiciona a miniatura à div de visualização de imagem
                 imagePreview.appendChild(img);
             }
         });
