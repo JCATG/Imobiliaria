@@ -14,6 +14,7 @@
     <title>Imobiliaria</title>
     <?php wp_head(); ?>
     <style>
+       
         @media only screen and (min-width: 768px) {
             .menu {
                 display: flex;
@@ -38,8 +39,14 @@
                 border-bottom: none;
             }
               .menu-menu-footer-container {
-            margin-top: 40px;
+            margin: 11% 1% 0;
         }
+        }
+        @media only screen and (max-width:480px){
+            .menu {
+                padding-top: 30px;
+            }
+
         }
 
         header {
@@ -70,7 +77,7 @@
             font-size: 1.5rem;
             cursor: pointer;
             position: absolute;
-            top: 34px;
+            top: 70px;
             right: 16px;
         }
 

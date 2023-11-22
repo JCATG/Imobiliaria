@@ -12,7 +12,6 @@ $post_id = get_the_ID();
       <style>
         html,
         body {
-          position: relative;
           height: 100%;
         }
 
@@ -145,14 +144,6 @@ $post_id = get_the_ID();
           },
         },
       });
-      var swiper2 = new Swiper(".mySwiper2", {
-        slidesPerView: 3,
-        spaceBetween: 30,
-        pagination: {
-          el: ".mySwiper2 .swiper-pagination",
-          clickable: true,
-        },
-      });
     </script>
   </section>
   <section>
@@ -162,7 +153,7 @@ $post_id = get_the_ID();
           <div class="mt-8">
             <div class="bg-myblue w-full md:w-2/4 p-4 px-2 flex items-center">
               <p class="text-3xl flex items-center">
-                <?php echo get_field('casa_ou_apo', $post->ID) ?> R$:<?php echo get_field('aluguel') ?>,00
+                <?php echo get_field('casa_ou_apo', $post->ID) ?>:R$<?php echo get_field('aluguel') ?>,00
               </p>
             </div>
           </div>
@@ -245,10 +236,10 @@ $post_id = get_the_ID();
             <div class="px-4 py-4 bg-myblue text-white">
               <a href="<?php echo get_permalink() ?>">
                 <div class="w-64">
-                  <img class="h-full largura_imagem" src="<?php echo get_field('foto_principal', $post->ID)  ?>">
+                  <img class="h-full w-full largura_imagem" src="<?php echo get_field('foto_principal', $post->ID)  ?>">
                   <p class="text-2xl mt-2"><?php echo get_field('cidade', $post->ID) ?></p>
                   <p class="text-md mt-2"> <span class="text-sm">Bairro:</span> <?php echo get_field('bairro', $post->ID) ?></p>
-                  <p class="text-2xl mt-2 gap-2"><span class="text-sm"><?php echo get_field('casa_ou_apo', $post->ID) ?></span>R$<?php echo get_field('aluguel', $post->ID) ?>,00</p>
+                  <p class="text-2xl mt-2 gap-2"><span class="text-sm"><?php echo get_field('casa_ou_apo', $post->ID) ?>:</span>R$<?php echo get_field('aluguel', $post->ID) ?>,00</p>
                   <button class="w-full py-3 mt-2 bg-mybluepastel">
                     Ver mais
                   </button>
@@ -262,7 +253,7 @@ $post_id = get_the_ID();
         <div class="swiper-pagination"></div>
       </div>
     </div>
-    <div class="mx-5 lg:mt-12 bg-myblue px-3 py-3 mb-4 max-w-5xl lg:mx-auto">
+    <div class="mx-5 lg:mt-12 bg-myblue px-3 py-3 mb-4 max-w-5xl lg:mx-auto text-white">
       <h2>Central Para negocio</h2>
       <p class="w-11/12 md:w-full">
         Satin Imóveis

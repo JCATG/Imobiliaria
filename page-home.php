@@ -228,10 +228,10 @@
             <div class="estilo_casa_desc_home">
               <a href="<?php echo get_permalink() ?>">
                 <div class="w-64">
-                  <img class="h-full largura_imagem" src="<?php echo get_field('foto_principal', $post->ID)  ?>">
+                  <img class="h-full w-full largura_imagem" src="<?php echo get_field('foto_principal', $post->ID)  ?>">
                   <p class="text-2xl mt-2"><?php echo get_field('cidade', $post->ID) ?></p>
                   <p class="text-md mt-2"> <span class="text-sm">Bairro:</span> <?php echo get_field('bairro', $post->ID) ?></p>
-                  <p class="text-lg mt-2 gap-2 flex items-center"><span class="text-sm"><?php echo get_field('casa_ou_apo', $post->ID) ?>:</span><span class="text-2xl"><?php echo get_field('aluguel', $post->ID) ?>,00</span></p>
+                  <p class="text-lg mt-2 gap-2 flex items-center"><span class="text-sm"><?php echo get_field('casa_ou_apo', $post->ID) ?>:</span><span class="text-2xl gap-1">R$<?php echo get_field('aluguel', $post->ID) ?>,00</span></p>
                   <button class="w-full py-3 mt-2 bg-mybluepastel">
                     Ver mais
                   </button>
@@ -244,7 +244,6 @@
       </div>
     </div>
   </section>
-
   <section>
     <div class="w-full md:mt-6 md:mb-6 justify-center items-center flex bg-mymarrom max-w-5xl mx-auto element">
       <div class="max-w-5xl mx-auto  justify-center items-center pt-6 pb-6">
@@ -305,7 +304,6 @@
                 <option value="2">2</option>
                 <option value="2">3</option>
                 <option value="sem garagem">sem garagem</option>
-
               </select>
               <select name="news_banheiro" id="" class="bg-mybluepastel">
                 <option value="qtd_quartos">Quantidade de Banheiro</option>
@@ -324,11 +322,8 @@
           </form>
         </div>
       </div>
-
     </div>
-
   </section>
-
   <section>
     <div class="bg-graypage pb-4" id="apartamento">
       <div class="max-w-4xl mx-auto mt-4">
@@ -342,10 +337,10 @@
             <div class="estilo_casa_desc_home">
               <a href="<?php echo get_permalink() ?>">
                 <div class="w-64">
-                  <img class="h-full largura_imagem" src="<?php echo get_field('foto_principal', $post->ID)  ?>">
+                  <img class="h-full w-full largura_imagem" src="<?php echo get_field('foto_principal', $post->ID)  ?>">
                   <p class="text-2xl mt-2"><?php echo get_field('cidade', $post->ID) ?></p>
                   <p class="text-md mt-2"> <span class="text-sm">Bairro: </span> <?php echo get_field('bairro', $post->ID) ?></p>
-                  <p class="text-2xl mt-2 gap-2 flex items-center"><span class="text-sm"><?php echo get_field('casa_ou_apo', $post->ID) ?>:</span><span class="text-2xl"><?php echo get_field('aluguel', $post->ID) ?>,00</span></p>
+                  <p class="text-2xl mt-2 gap-2 flex items-center"><span class="text-sm"><?php echo get_field('casa_ou_apo', $post->ID) ?>:</span><span class="text-2xl">R$<?php echo get_field('aluguel', $post->ID) ?>,00</span></p>
                   <button class="w-full py-3 mt-2 bg-mybluepastel">
                     Ver mais
                   </button>
@@ -363,7 +358,7 @@
       <div class="w-4/5 mt-2 text-lg mb-16 md:w-2/4 md:mt-0">
         <h2 class="text-2xl mb-3 uppercase text-mymarrom font-bold ">Sobre a empresa</h2>
         <p class="text-left tex-md text-mymarrom font-bold">
-          Fundada modestamente há duas décadas, a Imobiliária Primeiros Passos cresceu exponencialmente, tornando-se uma referência no mercado imobiliário. Nossa jornada começou com o compromisso de oferecer soluções personalizadas aos clientes, e hoje, orgulhamo-nos de ser uma imobiliária de destaque, dedicada a realizar sonhos e superar expectativas. Com uma equipe comprometida e uma trajetória de sucesso, continuamos a trilhar o caminho da excelência no setor imobiliário.
+          Fundada modestamente há duas décadas, a Imobiliária cresceu exponencialmente, tornando-se uma referência no mercado imobiliário. Nossa jornada começou com o compromisso de oferecer soluções personalizadas aos clientes, e hoje, orgulhamo-nos de ser uma imobiliária de destaque, dedicada a realizar sonhos e superar expectativas. Com uma equipe comprometida e uma trajetória de sucesso, continuamos a trilhar o caminho da excelência no setor imobiliário.
         </p>
       </div>
       <div class="w-4/5 md:w-2/5 mx-2 lg:w-2/5 lg:mx-0 first-letter flex flex-col mb-4 area-corretores" id="corretores">
@@ -383,6 +378,7 @@
 </body>
 
 <script>
+  
   var animationDuration = 500;
 
   document.getElementById("modalTrigger").addEventListener("click", function() {
